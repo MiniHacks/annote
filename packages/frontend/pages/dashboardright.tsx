@@ -1,19 +1,40 @@
 import type { NextPage } from "next";
-import { Box, Button, HStack } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  HStack,
+  Input,
+  InputGroup,
+  InputLeftElement,
+} from "@chakra-ui/react";
 import { BiSearchAlt2 } from "react-icons/bi";
 import PageLayout from "../components/Layout/PageLayout";
 import Card from "./Card";
+import "@fontsource/roboto-slab/latin-300.css";
+import "@fontsource/roboto-slab/latin-400.css";
+import "@fontsource/roboto-slab/latin-500.css";
+import "@fontsource/roboto-slab/latin-600.css";
+import "@fontsource/roboto-slab/latin-700.css";
+import "@fontsource/roboto-slab/latin-900.css";
+
+import "@fontsource/inter/200.css";
+import "@fontsource/inter/300.css";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/700.css";
+import "@fontsource/inter/900.css";
 
 const NewNote = (): JSX.Element => {
   return (
     <Button
-      justifyContent={"left"}
-      mx={"20px !important"}
+      justifyContent={"center"}
+      mx={"25px !important"}
       backgroundColor={"#282828"}
       color={"white"}
       borderRadius={"20px"}
       _hover={{ bg: "black" }}
       _active={{ bg: "black" }}
+      fontSize={"15px"}
+      px={"40px"}
       onClick={() => window.open("https://anshpa.tel")}
     >
       + New Note
@@ -22,18 +43,33 @@ const NewNote = (): JSX.Element => {
 };
 const Search = (): JSX.Element => {
   return (
-    <Button
-      justifyContent={"left"}
-      backgroundColor={"gray"}
-      color={"white"}
-      borderRadius={"30px"}
-      _hover={{ bg: "gray.500" }}
-      _active={{ bg: "gray.500" }}
-      onClick={() => window.open("https://anshpa.tel")}
-      rightIcon={<BiSearchAlt2 />}
-    >
-      {" "}
-    </Button>
+    <InputGroup>
+      <InputLeftElement
+        pointerEvents={"none"}
+        color={"white"}
+        fontSize={"1.2em"}
+        mx={"10px"}
+      >
+        <BiSearchAlt2 />
+      </InputLeftElement>
+      <Input
+        placeholder={"  Search for notes"}
+        _placeholder={{ color: "white" }}
+        width={"0"}
+        borderRadius={"20px"}
+        backgroundColor={"gray.400"}
+        transition={"width 0.5s"}
+        _focus={{
+          width: "400px",
+        }}
+        _hover={{
+          backgroundColor: "gray.500",
+        }}
+        _active={{
+          backgroundColor: "gray.500",
+        }}
+      />
+    </InputGroup>
   );
 };
 
