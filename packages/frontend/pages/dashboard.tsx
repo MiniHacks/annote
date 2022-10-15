@@ -60,7 +60,12 @@ const FolderButton = (): JSX.Element => {
   const finalRef = React.useRef(null);
   return (
     <>
-      <Button onClick={onOpen} variant="ghost" colorScheme="whiteAlpha">
+      <Button
+        onClick={onOpen}
+        px={-20}
+        variant="ghost"
+        colorScheme="whiteAlpha"
+      >
         + Create a new folder here
       </Button>
 
