@@ -30,6 +30,7 @@ import "@fontsource/roboto-slab/latin-600.css";
 //      Write the functions so we can set the new folder names
 //      FONTS
 //      Allow users to select colors.
+//      Allow users to select fonts.
 
 const Folder = ({ active }): JSX.Element => {
   return (
