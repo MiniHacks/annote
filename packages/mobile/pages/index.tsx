@@ -1,13 +1,15 @@
 import type { NextPage } from "next";
-import { Box, Heading } from "@chakra-ui/react";
+import dynamic from "next/dynamic";
 import PageLayout from "../components/Layout/PageLayout";
+
+const PenCanvas = dynamic(() => import("../components/PenCanvas"), {
+  ssr: false,
+});
 
 const Home: NextPage = () => {
   return (
     <PageLayout title={"geese, by minihacks"}>
-      <Box px={[5, 10]}>
-        <Heading as={"h1"}>annote!</Heading>
-      </Box>
+      <PenCanvas />
     </PageLayout>
   );
 };
