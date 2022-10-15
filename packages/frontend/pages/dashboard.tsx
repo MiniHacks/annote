@@ -16,26 +16,26 @@ function newFolder() {
     return (
         <div>
             <input type="text" id="message" placeholder="Enter Folder Name"/>
-            <button type="button" onClick={newFolder}>Create Folder</button>
+            <button type="button" onClick={Folder}>Create Folder</button>
         </div>
     )
 }
 
 const Folder = ({active}): JSX.Element => {
     return (
-        <HStack background={active?"gray.900":"transparent"} py={3} px={4} borderRadius={"10px 0 0 10px"}>
+        <HStack background={active?"blackAlpha.400":"transparent"} py={3} px={4} borderRadius={"10px 0 0 10px"}>
             <Box
                 backgroundColor={"#ff9090"}
                 borderRadius={"50%"}
-                height={"15px"}
-                width={"15px"}
+                height={"10px"}
+                width={"10px"}
             />
 
             <Box
                 as={"button"}
                 color = {"white"}
                 paddingLeft = {"10px"}
-                fontSize = {"20px"}
+                fontSize = {"15px"}
 
             >
                 This is your task here
@@ -64,13 +64,13 @@ const Home: NextPage = () => {
                     <Heading style={
                         {
                             color: "white",
-                            fontSize: "50px",
+                            fontSize: "45px",
                             backgroundColor: "black",
                             width: "calc(100% + 60px)",
-                            height: "100px",
+                            height: "80px",
                             marginLeft: "-60px",
                             paddingLeft: "70px",
-                            paddingTop: "18px",
+                            paddingTop: "12px",
                         }
                     }>Annote.</Heading>
                     <Divider borderColor="white" marginLeft={"-60px"} width={"calc(100%)+60px"}/>
@@ -105,7 +105,7 @@ const Home: NextPage = () => {
                     <Divider borderColor="white" marginLeft={"-60px"} width={"calc(100%)+60px"}/>
                     <Box style={
                         {
-                            color: "white",
+                            color: "grey.200",
                             paddingTop: "10px",
                             backgroundColor: "Black",
                             marginLeft: "-60px",
