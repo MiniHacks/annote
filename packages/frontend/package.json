@@ -13,10 +13,12 @@
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "framer-motion": "^6",
+    "gapi-script": "^1.2.0",
     "next": "12.3.0",
     "next-auth": "^4.14.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-google-login": "^5.2.2",
     "react-icons": "^4.6.0"
   },
   "devDependencies": {
