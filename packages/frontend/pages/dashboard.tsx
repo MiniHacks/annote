@@ -21,35 +21,15 @@ import {
 } from "@chakra-ui/react";
 import PageLayout from "../components/Layout/PageLayout";
 import React, { useState } from "react";
+import "@fontsource/roboto-slab/latin-300.css";
+import "@fontsource/roboto-slab/latin-400.css";
+import "@fontsource/roboto-slab/latin-500.css";
+import "@fontsource/roboto-slab/latin-600.css";
 
 //TODO:
 //      Write the functions so we can set the new folder names
 //      FONTS
 //      Allow users to select colors.
-
-//  function createFolder() {
-//      const [folderName, setFolderName] = useState("");
-//
-//      const toggleFolder = () => {
-//          setFolderName(folderName);
-//      }
-//
-//      return (
-//             <div className={"createFolder"}>
-//                 <Button onClick{toggleFolder}>Create Folder</Button>
-//                 <Input placeholder={"Folder Name"} onChange={e => setFolderName(e.target.value)} value={folderName}/>
-//             </div>
-//         );
-//  }
-//
-// function newFolder() {
-//     return (
-//         <div>
-//             <input type="text" id="message" placeholder="Enter Folder Name"/>
-//             <button type="button" onClick={Folder}>Create Folder</button>
-//         </div>
-//     )
-// }
 
 const Folder = ({ active }): JSX.Element => {
   return (
@@ -74,21 +54,14 @@ const Folder = ({ active }): JSX.Element => {
 };
 
 const FolderButton = (): JSX.Element => {
-  const [mode, setMode] = useBoolean(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const initialRef = React.useRef(null);
   const finalRef = React.useRef(null);
   return (
     <>
-      <Button
-        onClick={onOpen}
-        variant="ghost"
-        colorScheme="whiteAlpha"
-        hover={"#282828"}
-      >
+      <Button onClick={onOpen} variant="ghost" colorScheme="whiteAlpha">
         + Create a new folder here
       </Button>
-      {/*<Button ml={4} ref={finalRef}></Button>*/}
 
       <Modal
         initialFocusRef={initialRef}
@@ -118,24 +91,6 @@ const FolderButton = (): JSX.Element => {
     </>
   );
 };
-
-// const FolderButton = (): JSX.Element => {
-//     const [mode, setMode] = useBoolean(false);
-//     if (mode) {
-//         return <InitialFocus />;
-//     } else {
-//         return (
-//             <Button
-//                 variant="ghost"
-//                 onClick={setMode.toggle}
-//                 colorScheme="whiteAlpha"
-//                 hover={"#282828"}
-//             >
-//                 + Create a new folder here
-//             </Button>
-//         );
-//     }
-// };
 
 const Home: NextPage = () => {
   return (
@@ -190,7 +145,7 @@ const Home: NextPage = () => {
         </Box>
         <Box>
           {/*TODO: Remove Hover
-                             Make a function that makes a new folder*/}
+             Make a function that makes a new folder*/}
           {/*Create Folder Button*/}
           <FolderButton />
           {/*Email here*/}
@@ -201,7 +156,7 @@ const Home: NextPage = () => {
           />
           <Box
             style={{
-              color: "white",
+              color: "slategrey",
               paddingTop: "10px",
               backgroundColor: "Black",
               marginLeft: "-60px",
