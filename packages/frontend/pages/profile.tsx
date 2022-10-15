@@ -70,21 +70,45 @@ const NavBar = (): JSX.Element => {
           <Button colorScheme={"whiteAlpha"} variant={"ghost"}>
             Features
           </Button>
-          <Button colorScheme={"whiteAlpha"} variant={"ghost"}>
+          <Button
+            onClick={() => window.open("http://localhost:3000/landingpage")}
+            colorScheme={"whiteAlpha"}
+            variant={"ghost"}
+          >
             Download
           </Button>
           <Menu>
-            <MenuButton
-              as={Button}
-              colorScheme={"whiteAlpha"}
-              variant={"solid"}
-            >
+            <MenuButton as={Button} colorScheme={"whiteAlpha"}>
               Your Account
             </MenuButton>
-            <MenuList backgroundColor={"blackAlpha.900"}>
+            <MenuList
+              backgroundColor={"blackAlpha.900"}
+              _hover={{
+                backgroundColor: "blackAlpha.900",
+              }}
+            >
               <MenuGroup title={session?.user?.name}>
-                <MenuItem>My Account</MenuItem>
-                <MenuItem>Dashboard </MenuItem>
+                <MenuItem
+                  _hover={{
+                    backgroundColor: "blackAlpha.800",
+                  }}
+                >
+                  My Account
+                </MenuItem>
+                <MenuItem
+                  _hover={{
+                    backgroundColor: "blackAlpha.800",
+                  }}
+                >
+                  Dashboard{" "}
+                </MenuItem>
+                <MenuItem
+                  _hover={{
+                    backgroundColor: "blackAlpha.800",
+                  }}
+                >
+                  Log out
+                </MenuItem>
               </MenuGroup>
             </MenuList>
           </Menu>
@@ -113,7 +137,6 @@ const Home: NextPage = () => {
               }}
             >
               <SocialProfileWithImage />
-              data: {JSON.stringify(session)}
             </Heading>
           </VStack>
         </Box>

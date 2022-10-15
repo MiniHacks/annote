@@ -25,7 +25,11 @@ const NavBar = (): JSX.Element => {
           <Button colorScheme={"whiteAlpha"} variant={"ghost"}>
             Features
           </Button>
-          <Button colorScheme={"whiteAlpha"} variant={"ghost"}>
+          <Button
+            colorScheme={"whiteAlpha"}
+            variant={"ghost"}
+            onClick={() => window.open("http://localhost:3000/landingpage")}
+          >
             Download
           </Button>
           <Button colorScheme={"whiteAlpha"} variant={"solid"}>
