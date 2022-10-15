@@ -1,0 +1,125 @@
+import type { NextPage } from "next";
+import {
+  Heading,
+  Box,
+  Center,
+  Text,
+  Stack,
+  Button,
+  VStack,
+  HStack,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuGroup,
+  useColorModeValue,
+} from "@chakra-ui/react";
+
+import { useSession } from "next-auth/react";
+import PageLayout from "../components/Layout/PageLayout";
+
+function SocialProfileWithImage() {
+  const { data: session, status } = useSession();
+  console.log(status);
+  return (
+    <Center py={6}>
+      <Box
+        maxW={"350px"}
+        w={"full"}
+        bg={useColorModeValue("white", "gray.800")}
+        boxShadow={"2xl"}
+        rounded={"md"}
+        overflow={"hidden"}
+      >
+        <Box p={6}>
+          <Stack spacing={0} align={"center"} mb={5}>
+            <Heading fontSize={"2xl"} fontWeight={500} fontFamily={"body"}>
+              Welcome back, {session?.user?.name}
+            </Heading>
+            <Text color={"gray.500"} />
+          </Stack>
+
+          <Button
+            w={"full"}
+            mt={2}
+            bg={useColorModeValue("#151f21", "gray.900")}
+            color={"white"}
+            rounded={"md"}
+            _hover={{
+              transform: "translateY(-2px)",
+              boxShadow: "lg",
+            }}
+          >
+            View annotes
+          </Button>
+        </Box>
+      </Box>
+    </Center>
+  );
+}
+
+const NavBar = (): JSX.Element => {
+  const { data: session, status } = useSession();
+  console.log(status);
+  return (
+    <Box backgroundColor={"blackAlpha.900"} color={"white"} px={"5%"} py={3}>
+      <HStack justifyContent={"space-between"}>
+        <Heading fontSize={"35px"}>Annote.</Heading>
+        <HStack>
+          <Button colorScheme={"whiteAlpha"} variant={"ghost"}>
+            Features
+          </Button>
+          <Button colorScheme={"whiteAlpha"} variant={"ghost"}>
+            Download
+          </Button>
+          <Menu>
+            <MenuButton
+              as={Button}
+              colorScheme={"whiteAlpha"}
+              variant={"solid"}
+            >
+              Your Account
+            </MenuButton>
+            <MenuList backgroundColor={"blackAlpha.900"}>
+              <MenuGroup title={session?.user?.name}>
+                <MenuItem>My Account</MenuItem>
+                <MenuItem>Dashboard </MenuItem>
+              </MenuGroup>
+            </MenuList>
+          </Menu>
+        </HStack>
+      </HStack>
+    </Box>
+  );
+};
+
+const Home: NextPage = () => {
+  const { data: session, status } = useSession();
+  // if user is not logged in, redirect to login page
+  if (status === "unauthenticated") {
+    window.location.href = "/login";
+  }
+  console.log(status);
+  return (
+    <PageLayout title={"geese, by minihacks"}>
+      <Box backgroundColor={"yellow.50"} minHeight={"100vh"}>
+        <NavBar />
+        <Box>
+          <VStack minHeight={"500px"} justifyContent={"center"}>
+            <Heading
+              style={{
+                textAlign: "center",
+              }}
+            >
+              <SocialProfileWithImage />
+              data: {JSON.stringify(session)}
+            </Heading>
+          </VStack>
+        </Box>
+      </Box>
+    </PageLayout>
+  );
+};
+
+export default Home;
