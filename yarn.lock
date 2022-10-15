@@ -85,6 +85,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime@npm:^7.16.3":
+  version: 7.19.4
+  resolution: "@babel/runtime@npm:7.19.4"
+  dependencies:
+    regenerator-runtime: ^0.13.4
+  checksum: 66b7e3c13e9ee1d2c9397ea89144f29a875edee266a0eb2d9971be51b32fdbafc85808c7a45e011e6681899bb804b4e2ee2aed6dc07108dbbd6b11b6cc2afba6
+  languageName: node
+  linkType: hard
+
 "@babel/types@npm:^7.18.6":
   version: 7.19.0
   resolution: "@babel/types@npm:7.19.0"
@@ -1636,6 +1645,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@panva/hkdf@npm:^1.0.1":
+  version: 1.0.2
+  resolution: "@panva/hkdf@npm:1.0.2"
+  checksum: 75183b4d5ea816ef516dcea70985c610683579a9e2ac540c2d59b9a3ed27eedaff830a43a1c43c1683556a457c92ac66e09109ee995ab173090e4042c4c4bb03
+  languageName: node
+  linkType: hard
+
 "@popperjs/core@npm:^2.9.3":
   version: 2.11.6
   resolution: "@popperjs/core@npm:2.11.6"
@@ -2617,7 +2633,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cookie@npm:0.5.0":
+"cookie@npm:0.5.0, cookie@npm:^0.5.0":
   version: 0.5.0
   resolution: "cookie@npm:0.5.0"
   checksum: 1f4bd2ca5765f8c9689a7e8954183f5332139eb72b6ff783d8947032ec1fdf43109852c178e21a953a30c0dd42257828185be01b49d1eb1a67fd054ca588a180
@@ -3836,6 +3852,7 @@ __metadata:
     eslint-plugin-react-hooks: ^4.3.0
     framer-motion: ^6
     next: 12.3.0
+    next-auth: ^4.14.0
     prettier: ^2.5.1
     react: 18.2.0
     react-dom: 18.2.0
@@ -4506,6 +4523,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jose@npm:^4.1.4, jose@npm:^4.9.3":
+  version: 4.10.0
+  resolution: "jose@npm:4.10.0"
+  checksum: c575bf2519b758592b3037cac0da34ff2641e56a050b156fe6ab18c03cd6c22e5338d28d1fe3dd997c9b3c0cc7deda72faca4a93ff41274a587850c6519852d0
+  languageName: node
+  linkType: hard
+
 "js-sdsl@npm:^4.1.4":
   version: 4.1.4
   resolution: "js-sdsl@npm:4.1.4"
@@ -4891,6 +4915,31 @@ __metadata:
   languageName: node
   linkType: hard
 
+"next-auth@npm:^4.14.0":
+  version: 4.14.0
+  resolution: "next-auth@npm:4.14.0"
+  dependencies:
+    "@babel/runtime": ^7.16.3
+    "@panva/hkdf": ^1.0.1
+    cookie: ^0.5.0
+    jose: ^4.9.3
+    oauth: ^0.9.15
+    openid-client: ^5.1.0
+    preact: ^10.6.3
+    preact-render-to-string: ^5.1.19
+    uuid: ^8.3.2
+  peerDependencies:
+    next: ^12.2.5
+    nodemailer: ^6.6.5
+    react: ^17.0.2 || ^18
+    react-dom: ^17.0.2 || ^18
+  peerDependenciesMeta:
+    nodemailer:
+      optional: true
+  checksum: 435c12adb1423515cd767451339e9965bdb7339bdfb2c9061671e50f37e13c51957137c188a9c5e4e18e0df686ba2f48ef5625d28d0f4ecc8a828140bf0425d6
+  languageName: node
+  linkType: hard
+
 "next@npm:12.3.0":
   version: 12.3.0
   resolution: "next@npm:12.3.0"
@@ -5041,10 +5090,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"oauth@npm:^0.9.15":
+  version: 0.9.15
+  resolution: "oauth@npm:0.9.15"
+  checksum: 957c0d8d85300398dcb0e293953650c0fc3facc795bee8228238414f19f59cef5fd4ee8d17a972c142924c10c5f6ec50ef80f77f4a6cc6e3c98f9d22c027801c
+  languageName: node
+  linkType: hard
+
 "object-assign@npm:^4, object-assign@npm:^4.1.1":
   version: 4.1.1
   resolution: "object-assign@npm:4.1.1"
   checksum: fcc6e4ea8c7fe48abfbb552578b1c53e0d194086e2e6bbbf59e0a536381a292f39943c6e9628af05b5528aa5e3318bb30d6b2e53cadaf5b8fe9e12c4b69af23f
+  languageName: node
+  linkType: hard
+
+"object-hash@npm:^2.0.1":
+  version: 2.2.0
+  resolution: "object-hash@npm:2.2.0"
+  checksum: 55ba841e3adce9c4f1b9b46b41983eda40f854e0d01af2802d3ae18a7085a17168d6b81731d43fdf1d6bcbb3c9f9c56d22c8fea992203ad90a38d7d919bc28f1
   languageName: node
   linkType: hard
 
@@ -5117,6 +5180,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"oidc-token-hash@npm:^5.0.1":
+  version: 5.0.1
+  resolution: "oidc-token-hash@npm:5.0.1"
+  checksum: d62aa8c665f1a0133a3694785e4cd75f471364e6a2f4fbf7997e193a49ccf8f8de15596f475c7fdf8510d021c3b72f7ff6ab8bc5b07bff4cf21d490177f164a5
+  languageName: node
+  linkType: hard
+
 "on-finished@npm:2.4.1":
   version: 2.4.1
   resolution: "on-finished@npm:2.4.1"
@@ -5132,6 +5202,18 @@ __metadata:
   dependencies:
     wrappy: 1
   checksum: cd0a88501333edd640d95f0d2700fbde6bff20b3d4d9bdc521bdd31af0656b5706570d6c6afe532045a20bb8dc0849f8332d6f2a416e0ba6d3d3b98806c7db68
+  languageName: node
+  linkType: hard
+
+"openid-client@npm:^5.1.0":
+  version: 5.1.10
+  resolution: "openid-client@npm:5.1.10"
+  dependencies:
+    jose: ^4.1.4
+    lru-cache: ^6.0.0
+    object-hash: ^2.0.1
+    oidc-token-hash: ^5.0.1
+  checksum: 38a4bf08ea4ee4576043968307cf53f0369df224bd025c1bc348b295152df36c47d2a836dfe1505d15c6b79c05f86aadefad798bd3ea3ccbe90834be01f2245c
   languageName: node
   linkType: hard
 
@@ -5283,6 +5365,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"preact-render-to-string@npm:^5.1.19":
+  version: 5.2.5
+  resolution: "preact-render-to-string@npm:5.2.5"
+  dependencies:
+    pretty-format: ^3.8.0
+  peerDependencies:
+    preact: ">=10"
+  checksum: 42a735274a190577e3a1fc785ab179a8ec422345d0fd24402146aa2e3c2b216b724c94d569677f744e366c2fbbe5619bc4ab8270cb8036c366d524b54e82fd3f
+  languageName: node
+  linkType: hard
+
+"preact@npm:^10.6.3":
+  version: 10.11.2
+  resolution: "preact@npm:10.11.2"
+  checksum: 92b4087a4048595e43fc5c005e9a1f3c890ec83657689de9b40b1894e26f8c2b6b071c63e08941a44044d1612532f8313483b62e3d6e1aa3c39bde27614ed790
+  languageName: node
+  linkType: hard
+
 "prelude-ls@npm:^1.2.1":
   version: 1.2.1
   resolution: "prelude-ls@npm:1.2.1"
@@ -5305,6 +5405,13 @@ __metadata:
   bin:
     prettier: bin-prettier.js
   checksum: 55a4409182260866ab31284d929b3cb961e5fdb91fe0d2e099dac92eaecec890f36e524b4c19e6ceae839c99c6d7195817579cdffc8e2c80da0cb794463a748b
+  languageName: node
+  linkType: hard
+
+"pretty-format@npm:^3.8.0":
+  version: 3.8.0
+  resolution: "pretty-format@npm:3.8.0"
+  checksum: 21a114d43ef06978f8f7f6212be4649b0b094f05d9b30e14e37550bf35c8ca24d8adbca9e5adc4cc15d9eaf7a1e7a30478a4dc37b30982bfdf0292a5b385484c
   languageName: node
   linkType: hard
 
@@ -6331,6 +6438,15 @@ __metadata:
   version: 1.0.1
   resolution: "utils-merge@npm:1.0.1"
   checksum: c81095493225ecfc28add49c106ca4f09cdf56bc66731aa8dabc2edbbccb1e1bfe2de6a115e5c6a380d3ea166d1636410b62ef216bb07b3feb1cfde1d95d5080
+  languageName: node
+  linkType: hard
+
+"uuid@npm:^8.3.2":
+  version: 8.3.2
+  resolution: "uuid@npm:8.3.2"
+  bin:
+    uuid: dist/bin/uuid
+  checksum: 5575a8a75c13120e2f10e6ddc801b2c7ed7d8f3c8ac22c7ed0c7b2ba6383ec0abda88c905085d630e251719e0777045ae3236f04c812184b7c765f63a70e58df
   languageName: node
   linkType: hard
 
