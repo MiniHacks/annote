@@ -1,3 +1,5 @@
+/* eslint-disable */
+// @ts-nocheck
 import React, {
   TouchEventHandler,
   useCallback,
@@ -143,6 +145,9 @@ const PenCanvas = () => {
 
   return (
     <div style={{ height: "100vh", width: "100vw" }}>
+      <style>{`
+      body { background-color: #FDFFED }
+      `}</style>
       <canvas
         ref={canvas}
         onTouchStart={handleTouchStart}
@@ -157,12 +162,12 @@ const PenCanvas = () => {
         onMouseUp={handleTouchEnd}
         style={{
           position: "absolute",
+          background:
+            "repeating-linear-gradient(#FDFFED, #FDFFED 25px, #E9EBDA 26px, #E9EBDA 27px)",
           top: 0,
           left: 0,
           width: "50%",
-          outline: "1px solid red",
           height: "1500px",
-          backgroundColor: "#eee",
           touchAction: "none",
         }}
       >
