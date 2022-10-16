@@ -36,11 +36,7 @@ const SplitPage1 = (): JSX.Element => {
         <Heading>Text-to-speech recognition</Heading>
         <Box>Test</Box>
       </Box>
-      <Box
-        width={"50%"}
-        height={"60vh"}
-        backgroundColor={"blackAlpha.800"}
-      ></Box>
+      <Box width={"50%"} height={"60vh"} backgroundColor={"blackAlpha.800"} />
     </HStack>
   );
 };
@@ -57,7 +53,7 @@ const SplitPage2 = (): JSX.Element => {
       }}
     >
       <Box width={"50%"} height={"50vh"} backgroundColor={"#c5d6db"}>
-        <Heading></Heading>
+        <Heading />
       </Box>
       <Box width={"50%"} height={"50vh"} backgroundColor={"#7c9eb7"}>
         test
@@ -150,53 +146,160 @@ const Home: NextPage = () => {
         spacing={0}
         style={{
           height: "60vh",
-          justifyContent: "center",
+          justifyContent: "start",
           alignItems: "center",
           flex: "display",
           flexDirection: "row",
           color: "white",
         }}
       >
+        {/* top left box */}
         <Box
-          width={"50%"}
-          height={"60vh"}
+          width={"60%"}
+          height={"65vh"}
           backgroundColor={"blackAlpha.800"}
-          textAlign={"center"}
-          paddingTop={"10%"}
+          textAlign={"left"}
+          paddingTop={"5%"}
+          px={"175px"}
         >
           <Heading>Text-to-speech recognition</Heading>
           <Box>Test</Box>
         </Box>
+        {/* top right box */}
         <Box
-          width={"50%"}
-          height={"60vh"}
+          width={"40%"}
+          height={"65vh"}
           backgroundColor={"blackAlpha.800"}
-        ></Box>
+          py={"55px"}
+          px={"40px"}
+        >
+          <Image
+            htmlHeight={"370px"}
+            htmlWidth={"370px"}
+            src={"https://i.imgur.com/uvdhlJl.png"}
+            alt={"ipad image"}
+          />
+        </Box>
       </HStack>
 
       <HStack
         spacing={0}
         style={{
+          height: "65vh",
+          width: "100%",
+          justifyContent: "start",
+          flex: "display",
+          flexDirection: "row",
+          color: "white",
+        }}
+      >
+        {/* bottom left box */}
+        <Box
+          width={"60%"}
+          height={"65vh"}
+          backgroundColor={"white"}
+          px={"100px"}
+          py={"55px"}
+        >
+          <Image
+            htmlHeight={"600px"}
+            htmlWidth={"600px"}
+            src={"https://i.imgur.com/DlYG3Fe.jpeg"}
+            alt={"ipad image"}
+          />
+        </Box>
+        <Box
+          width={"40%"}
+          height={"65vh"}
+          color={"black"}
+          backgroundColor={"white"}
+          paddingTop={"10%"}
+          fontFamily={"Lato"}
+        >
+          <Heading>AI Generated Summaries</Heading>
+          <Box>We generate one line and in-depth summaries using AI.</Box>
+          {/* bottom right box */}
+        </Box>
+      </HStack>
+      {/* this that shit that dont counr */}
+      <HStack
+        spacing={0}
+        style={{
           height: "60vh",
-          justifyContent: "center",
+          justifyContent: "start",
           alignItems: "center",
           flex: "display",
           flexDirection: "row",
           color: "white",
         }}
       >
+        {/* top left box */}
         <Box
-          width={"50%"}
-          height={"60vh"}
-          backgroundColor={"blackAlpha.800"}
-          textAlign={"center"}
-          paddingTop={"10%"}
+          width={"60%"}
+          height={"65vh"}
+          backgroundColor={"black"}
+          textAlign={"left"}
+          paddingTop={"5%"}
+          px={"175px"}
         >
-          <Heading>Speech-to-text recognition</Heading>
-          <Box>WRITE TEXT HERE FOR THE SPEECH TO TEXT</Box>
+          <Heading>Replayable Recording</Heading>
+          <Box>Test</Box>
         </Box>
-        <Box width={"50%"} height={"60vh"} backgroundColor={"blackAlpha.800"}>
-          <Image src={"https://i.imgur.com/yJW12Xw.png"} alt={"ipad image"} />
+        {/* top right box */}
+        <Box
+          width={"40%"}
+          height={"65vh"}
+          backgroundColor={"black"}
+          py={"70px"}
+          px={"40px"}
+        >
+          <Image
+            htmlHeight={"100%"}
+            htmlWidth={"100%"}
+            borderColor={"black"}
+            src={"https://i.imgur.com/m32iiky.png"}
+            alt={"ipad image"}
+          />
+        </Box>
+      </HStack>
+
+      <HStack
+        spacing={0}
+        style={{
+          height: "65vh",
+          width: "100%",
+          justifyContent: "start",
+          flex: "display",
+          flexDirection: "row",
+          color: "white",
+        }}
+      >
+        {/* bottom left box */}
+        <Box
+          width={"60%"}
+          height={"65vh"}
+          backgroundColor={"white"}
+          px={"100px"}
+          py={"55px"}
+        >
+          <Image
+            htmlHeight={"600px"}
+            htmlWidth={"600px"}
+            src={"https://i.imgur.com/DlYG3Fe.jpeg"}
+            alt={"ipad image"}
+          />
+        </Box>
+        <Box
+          width={"40%"}
+          height={"65vh"}
+          color={"black"}
+          backgroundColor={"white"}
+          paddingTop={"10%"}
+          fontFamily={"Lato"}
+        >
+          <Heading>AI Generated Summaries</Heading>
+          <Box>We generate one line and in-depth summaries using AI.</Box>
+          {/* bottom right box */}
         </Box>
       </HStack>
     </Box>
