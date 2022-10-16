@@ -32,7 +32,11 @@ const NavBar = (): JSX.Element => {
           >
             Download
           </Button>
-          <Button colorScheme={"whiteAlpha"} variant={"solid"}>
+          <Button
+            onClick={() => window.open("http://localhost:3000/login")}
+            colorScheme={"whiteAlpha"}
+            variant={"solid"}
+          >
             Sign in
           </Button>
         </HStack>
@@ -97,6 +101,7 @@ function SimpleCard() {
       align={"center"}
       justify={"center"}
       bg={useColorModeValue("blackAlpha.900", "gray.800")}
+      boxShadow={"0px 4px 12px rgba(0, 0, 0, 0.1)"}
     >
       <Stack spacing={8} mx={"auto"} maxW={"lg"} py={8} px={7}>
         <Stack align={"center"}>
