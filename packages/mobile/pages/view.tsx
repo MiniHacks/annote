@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import dynamic from "next/dynamic";
-import { chakra, Box, HStack, Image } from "@chakra-ui/react";
+import { chakra, Box, HStack, Image, Button } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import PageLayout from "../components/Layout/PageLayout";
@@ -119,6 +119,14 @@ const Home: NextPage = () => {
         <ReadPenCanvas img={`${process.env.NEXT_PUBLIC_IO_URL}/${id}.png`} />
         <ReadTranscript complete={transcript} />
       </Box>
+      <Button
+        pos={"fixed"}
+        top={5}
+        left={5}
+        onClick={() => router.push("/dashboard")}
+      >
+        Back
+      </Button>
     </PageLayout>
   );
 };
