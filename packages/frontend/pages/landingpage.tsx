@@ -41,7 +41,7 @@ const NavBar = (): JSX.Element => {
             Download
           </Button>
           <Button colorScheme={"whiteAlpha"} variant={"solid"}>
-            Sign in
+            Sign up
           </Button>
         </HStack>
       </HStack>

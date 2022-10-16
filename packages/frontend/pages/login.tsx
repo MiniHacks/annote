@@ -40,7 +40,7 @@ const NavBar = (): JSX.Element => {
             colorScheme={"whiteAlpha"}
             variant={"solid"}
           >
-            Sign in
+            Sign up
           </Button>
         </HStack>
       </HStack>
@@ -120,12 +120,12 @@ function SimpleCard() {
       <Stack spacing={8} mx={"auto"} maxW={"lg"} py={8} px={7}>
         <Stack align={"center"}>
           <Heading fontSize={"3xl"} color={"whiteAlpha.900"}>
-            Sign in to your account
+            Sign up
           </Heading>
           <Text fontSize={"lg"} color={"whiteAlpha.800"}>
-            to view your annotes and{" "}
+            and create Annotes today!!{" "}
             <Link color={"whiteAlpha.800"} textDecoration={"underline"}>
-              more!
+                {" "}
             </Link>
             ✎
           </Text>
