@@ -241,7 +241,8 @@ export default function Transcript(): JSX.Element {
     await getAPI(name ?? "").post("/save", {
       transcript: completeData,
       folder: document.querySelector("#recording_folder")?.value,
-      name: document.querySelector("#recording_name")?.value,
+      name:
+        document.querySelector("#recording_name")?.value || "Projectile Motion",
       image: document.querySelector("canvas")?.toDataURL(),
     });
 

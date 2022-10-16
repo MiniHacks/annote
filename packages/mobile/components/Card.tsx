@@ -1,5 +1,4 @@
-import Image from "next/image";
-import { Box, Heading, Text, Stack, useColorModeValue } from "@chakra-ui/react";
+import { Box, Heading, Stack, Text, useColorModeValue } from "@chakra-ui/react";
 
 import "@fontsource/roboto-slab/latin-300.css";
 import "@fontsource/roboto-slab/latin-400.css";
@@ -13,8 +12,10 @@ import "@fontsource/inter/300.css";
 import "@fontsource/inter/400.css";
 import "@fontsource/inter/700.css";
 import "@fontsource/inter/900.css";
+import { useRouter } from "next/router";
 
-export default function Card() {
+export default function Card({ note }) {
+  const router = useRouter();
   return (
     <Box
       alignItems={"start"}
@@ -31,9 +32,19 @@ export default function Card() {
       p={0}
       overflow={"hidden"}
       _hover={{ boxShadow: "0px 6px 14px rgba(0, 0, 0, 0.2)" }}
-      onClick={() => window.open("https://anshpa.tel")}
+      onClick={() => router.push(`/view/${note.id}`)}
     >
-      <Box h={"310px"} width={"100%"} bg={"gray.100"} mt={-6} mb={6} />
+      <Box
+        h={"310px"}
+        width={"100%"}
+        bg={"gray.100"}
+        mt={-6}
+        mb={6}
+        background={`url(${process.env.NEXT_PUBLIC_IO_URL ?? ""}/${
+          note.image
+        }) top`}
+        backgroundSize={"cover"}
+      />
       <Stack textAlign={"left"} p={4}>
         <Text
           color={"gray.500"}
@@ -50,10 +61,10 @@ export default function Card() {
           fontSize={"20px"}
           width={"100%"}
         >
-          Projectile Motion
+          {note.name}
         </Heading>
         <Text color={"gray.500"} fontSize={"15px"} width={"100%"}>
-          Summary
+          {note.transcript[0]?.result?.text}
         </Text>
       </Stack>
     </Box>

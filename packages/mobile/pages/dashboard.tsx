@@ -293,6 +293,7 @@ const Search = (): JSX.Element => {
 };
 
 const RightSide = ({ data }: { data: any }): JSX.Element => {
+  const { username, selection, search, setSearch, notes } = data;
   return (
     <Box
       justifyContent={"start"}
@@ -300,18 +301,16 @@ const RightSide = ({ data }: { data: any }): JSX.Element => {
       minHeight={"100vh"}
       px={"10px"}
       py={"10px"}
+      flexGrow={1}
     >
       <HStack spacing={0}>
         <NewNote />
-        <Search />
+        <Search search={search} setSearch={setSearch} />
       </HStack>
       <HStack wrap={"wrap"} spacing={0}>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        {notes.map((note: Note) => (
+          <Card note={note} />
+        ))}
       </HStack>
     </Box>
   );

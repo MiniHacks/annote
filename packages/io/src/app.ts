@@ -89,7 +89,15 @@ app.post("/save", async (req: Request, res: Response) => {
 
   client.connect().then(async () => {
     const collection = client.db("annote").collection("notes");
-    await collection.insertOne({ id, transcript, image: `${id}.png`, owner: name });
+    console.log(req.body);
+    await collection.insertOne({
+      id,
+      transcript,
+      image: `${id}.png`,
+      owner: name,
+      folder: req.body.folder,
+      name: req.body.name,
+    });
     res.json({ success: "saved", id });
   });
 });
