@@ -116,7 +116,7 @@ const Home: NextPage = () => {
   return (
     <PageLayout title={"Annote Review"}>
       <Box style={{ display: "flex", maxHeight: "100vh" }}>
-        <ReadPenCanvas />
+        <ReadPenCanvas img={`${process.env.NEXT_PUBLIC_IO_URL}/${id}.png`} />
         <ReadTranscript complete={transcript} />
       </Box>
     </PageLayout>
