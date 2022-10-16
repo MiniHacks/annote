@@ -6,7 +6,7 @@ import os
 import tempfile
 import ffmpeg
 
-medium = whisper.load_model("medium")
+medium = whisper.load_model("medium.en")
 tiny_en = whisper.load_model("tiny.en")
 
 app = FastAPI()
@@ -26,7 +26,7 @@ async def tiny(socketId: str, partial: int):
     # result = tiny.transcribe()
     start_time = time.time()
     path = getFilePath(socketId, partial)
-    result = tiny_en.transcribe(path)
+    result = tiny_en.transcribe(path, "en")
 
     return {"time": time.time() - start_time, "path": getFilePath(socketId, partial), "result": result}
 
@@ -42,5 +42,5 @@ async def revise(socketId: str, partial: int, num: int):
     files = [ffmpeg.input(getFilePath(socketId, i)) for i in range(partial - num + 1, partial + 1)]
     ffmpeg.concat(*files, v=0, a=1).output(file).run()
 
-    result = medium.transcribe(file)
+    result = medium.transcribe(file, language="en")
     return {"time": time.time() - start_time, "result": result, "file": file}
