@@ -12,6 +12,7 @@ const NavBar = (): JSX.Element => {
       py={3}
       position={"sticky"}
       top={"0"}
+      zIndex={1}
     >
       <HStack justifyContent={"space-between"}>
         <Heading
@@ -23,7 +24,7 @@ const NavBar = (): JSX.Element => {
         </Heading>
         <HStack spacing={4}>
           <Button
-            onClick={() => router.push("/features")}
+            onClick={() => router.push("/#features")}
             colorScheme={"whiteAlpha"}
             variant={"ghost"}
             fontWeight={"400"}
@@ -36,7 +37,7 @@ const NavBar = (): JSX.Element => {
           <Button
             colorScheme={"whiteAlpha"}
             variant={"ghost"}
-            onClick={() => router.push("/")}
+            onClick={() => alert("Coming soon!")}
             fontWeight={"400"}
             _hover={{
               backgroundColor: "whiteAlpha.200",

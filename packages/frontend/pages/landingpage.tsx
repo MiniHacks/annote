@@ -58,56 +58,6 @@ const Home: NextPage = () => {
   return (
     <Box backgroundColor={"whiteAlpha.50"} minHeight={"100vh"}>
       <NavBar />
-      <Box
-        style={{
-          backgroundImage: "url(https://i.imgur.com/T45byG9.png",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-        }}
-      >
-        <Box>
-          <VStack justifyContent={"start"} paddingTop={"30px"}>
-            <Heading
-              style={{
-                textAlign: "center",
-              }}
-            >
-              What a great day to take annote.
-            </Heading>
-            <Box>
-              Annote. Live transcription and summarization in your all-in-one
-              digital notebook.
-            </Box>
-          </VStack>
-        </Box>
-        <Center>
-          <Image
-            htmlHeight={"50%"}
-            htmlWidth={"50%"}
-            src={"https://i.imgur.com/8tYEs8l.png"}
-            alt={"ipad image"}
-          />
-        </Center>
-        <Center>
-          <Image
-            htmlHeight={"50px"}
-            htmlWidth={"70px"}
-            paddingRight={"10px"}
-            src={"https://i.imgur.com/xIJEHn9.png"}
-            alt={"Download on the app store."}
-            paddingBottom={"50px"}
-          />
-          <Image
-            htmlHeight={"100px"}
-            htmlWidth={"200px"}
-            src={
-              "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/2560px-Download_on_the_App_Store_Badge.svg.png"
-            }
-            alt={"Download on the app store."}
-            paddingBottom={"50px"}
-          />
-        </Center>
-      </Box>
       <HStack
         spacing={0}
         style={{
