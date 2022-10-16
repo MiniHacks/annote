@@ -41,12 +41,12 @@ io.on("connection", (socket) => {
   });
 
   socket.on("done_with_segment", async ({ id }) => {
-    const { data } = await axios.get(`http://localhost:8000/tiny?socketId=${socket.id}&partial=${id}`);
+    const { data } = await axios.get(`http://127.0.0.1:8000/tiny?socketId=${socket.id}&partial=${id}`);
     console.log(data);
     socket.emit("tiny_data", data);
 
     if (id % 4 == 0) {
-      const { data } = await axios.get(`http://localhost:8000/revise?socketId=${socket.id}&partial=${id}`);
+      const { data } = await axios.get(`http://127.0.0.1:8000/revise?socketId=${socket.id}&partial=${id}`);
       console.log("complete", data);
       socket.emit("complete_data", data);
     }
@@ -54,5 +54,5 @@ io.on("connection", (socket) => {
 });
 
 server.listen(PORT, () => {
-  console.log(`io listening on http://localhost:${PORT}`);
+  console.log(`io listening on http://127.0.0.1:${PORT}`);
 });
