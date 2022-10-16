@@ -56,6 +56,18 @@ app.get("/dashboard", (req: Request, res: Response) => {
   });
 });
 
+app.get("/find", (req: Request, res: Response) => {
+  if (!req.query.id) return res.send("no id provided");
+  client.connect().then(() => {
+    const collection = client.db("annote").collection("notes");
+    const foldersData = collection.find({ id: req.query.id }).toArray();
+    foldersData.then((data) => {
+      res.json(data);
+    });
+    console.log("connected to mongodb");
+  });
+});
+
 app.post("/folder", (req: Request, res: Response) => {
   if (!req.query.name) return res.send("no name provided");
 
