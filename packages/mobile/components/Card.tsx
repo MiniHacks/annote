@@ -13,8 +13,9 @@ import "@fontsource/inter/400.css";
 import "@fontsource/inter/700.css";
 import "@fontsource/inter/900.css";
 import { useRouter } from "next/router";
+import { Note } from "../pages/dashboard";
 
-export default function Card({ note }) {
+export default function Card({ note }: { note: Note }) {
   const router = useRouter();
   return (
     <Box

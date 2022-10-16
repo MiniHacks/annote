@@ -246,7 +246,7 @@ export default function Transcript(): JSX.Element {
       image: document.querySelector("canvas")?.toDataURL(),
     });
 
-    router.push("/dashboard");
+    window.location.href = "/dashboard";
   };
 
   const complete = completeData.filter(
@@ -303,7 +303,7 @@ export default function Transcript(): JSX.Element {
                 <Select
                   variant={"outline"}
                   id={"recording_folder"}
-                  placeholder={folders[0]?.name ?? ""}
+                  placeholder={"Select a folder"}
                 >
                   {folders.map((folder) => (
                     <option value={folder.name}>{folder.name}</option>

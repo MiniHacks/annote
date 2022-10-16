@@ -147,10 +147,13 @@ const FolderButton = (): JSX.Element => {
   );
 };
 
-type Note = {
+export type Note = {
   _id: string;
   title: string;
   summary: string;
+  id: string;
+  image: string;
+  name: string;
 };
 
 export type FolderType = {
@@ -167,7 +170,7 @@ const LeftSide = ({ data }: { data: any }): JSX.Element => {
         flexDirection: "column",
         justifyContent: "space-between",
         height: "100vh",
-        width: "20%",
+        minWidth: "20%",
         backgroundColor: "#282828",
         paddingLeft: "30px",
         position: "sticky",
@@ -258,7 +261,7 @@ const NewNote = (): JSX.Element => {
     </Button>
   );
 };
-const Search = (): JSX.Element => {
+const Search = ({ search, setSearch }): JSX.Element => {
   return (
     <InputGroup>
       <InputLeftElement
@@ -287,6 +290,8 @@ const Search = (): JSX.Element => {
           paddingLeft: "40px",
           transition: "width 0.5s ease-in-out, padding 0.1s 0s ease-in",
         }}
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
       />
     </InputGroup>
   );
@@ -308,7 +313,16 @@ const RightSide = ({ data }: { data: any }): JSX.Element => {
         <Search search={search} setSearch={setSearch} />
       </HStack>
       <HStack wrap={"wrap"} spacing={0}>
-        {notes.map((note: Note) => <Card note={note} />).reverse()}
+        {notes
+          .filter(
+            (note: Note) =>
+              JSON.stringify(note)
+                .toLowerCase()
+                .includes(selection.toLowerCase()) &&
+              JSON.stringify(note).toLowerCase().includes(search.toLowerCase())
+          )
+          .map((note: Note) => <Card note={note} />)
+          .reverse()}
       </HStack>
     </Box>
   );
