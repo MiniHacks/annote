@@ -13,6 +13,48 @@ import {
 import React from "react";
 import PageLayout from "../components/Layout/PageLayout";
 
+const SplitPage1 = (): JSX.Element => {
+  return (
+    <HStack
+      spacing={0}
+      style={{
+        height: "50vh",
+        justifyContent: "split-between",
+        flex: "display",
+        flexDirection: "row",
+      }}
+    >
+      <Box width={"50%"} height={"50vh"} backgroundColor={"white"}>
+        <Heading>test</Heading>
+      </Box>
+      <Box width={"50%"} height={"50vh"} backgroundColor={"black"}>
+        test
+      </Box>
+    </HStack>
+  );
+};
+
+const SplitPage2 = (): JSX.Element => {
+  return (
+    <HStack
+      spacing={0}
+      style={{
+        height: "50vh",
+        justifyContent: "split-between",
+        flex: "display",
+        flexDirection: "row",
+      }}
+    >
+      <Box width={"50%"} height={"50vh"} backgroundColor={"black"}>
+        <Heading></Heading>
+      </Box>
+      <Box width={"50%"} height={"50vh"} backgroundColor={"white"}>
+        test
+      </Box>
+    </HStack>
+  );
+};
+
 const NavBar = (): JSX.Element => {
   return (
     <Box backgroundColor={"blackAlpha.900"} color={"white"} px={"5%"} py={3}>
@@ -93,6 +135,10 @@ const Home: NextPage = () => {
           paddingBottom={"50px"}
         />
       </Center>
+      <SplitPage1 />
+      <SplitPage2 />
+      <SplitPage1 />
+      <SplitPage2 />
     </Box>
   );
 };
