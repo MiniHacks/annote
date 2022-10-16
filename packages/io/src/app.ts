@@ -17,7 +17,11 @@ config({ path: "../../.env" });
 
 const app = express();
 app.use(cors());
-app.use(bodyParser.json());
+app.use(
+  bodyParser.json({
+    limit: "100mb",
+  })
+);
 const server = createServer(app);
 const client = new MongoClient(process.env.MONGO ?? "", {
   // useNewUrlParser: true,
@@ -106,16 +110,21 @@ io.on("connection", (socket) => {
   });
 
   socket.on("done_with_segment", async ({ id, is_final, num }) => {
-    const { data } = await axios.get(`http://127.0.0.1:8000/tiny?socketId=${socket.id}&partial=${id}`);
-    console.log(data);
-    socket.emit("tiny_data", data);
+    try {
+      const { data } = await axios.get(`http://127.0.0.1:8000/tiny?socketId=${socket.id}&partial=${id}`);
+      console.log(data);
 
-    if (is_final) {
-      const { data } = await axios.get(
-        `http://127.0.0.1:8000/revise?socketId=${socket.id}&partial=${id}&num=${num}`
-      );
-      console.log("complete", data);
-      socket.emit("complete_data", data);
+      socket.emit("tiny_data", data);
+
+      if (is_final) {
+        const { data } = await axios.get(
+          `http://127.0.0.1:8000/revise?socketId=${socket.id}&partial=${id}&num=${num}`
+        );
+        console.log("complete", data);
+        socket.emit("complete_data", data);
+      }
+    } catch (e) {
+      console.log(e);
     }
   });
 });

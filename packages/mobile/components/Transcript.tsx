@@ -223,7 +223,7 @@ export default function Transcript(): JSX.Element {
 
   const router = useRouter();
 
-  const stopRecording = () => {
+  const stopRecording = async () => {
     // console.log("stopButton clicked");
 
     // gumStream?.getAudioTracks()[0].stop();
@@ -234,6 +234,14 @@ export default function Transcript(): JSX.Element {
       } catch (e) {
         console.log(e);
       }
+
+    // get name from storage
+    const { value: name } = await Storage.get({ key: "name" });
+
+    await getAPI(name ?? "").post("/save", {
+      transcript: completeData,
+      image: document.querySelector("canvas")?.toDataURL(),
+    });
 
     router.push("/dashboard");
   };
@@ -301,7 +309,7 @@ export default function Transcript(): JSX.Element {
               </VStack>
             </ModalBody>
             <ModalFooter>
-              <Button onClick={onClose} colorScheme={"teal"}>
+              <Button onClick={stopRecording} colorScheme={"teal"}>
                 Continue
               </Button>
             </ModalFooter>

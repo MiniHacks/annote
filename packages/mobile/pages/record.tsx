@@ -1,4 +1,3 @@
-import type { NextPage } from "next";
 import { NextPage } from "next";
 import dynamic from "next/dynamic";
 import { Box, HStack, Image } from "@chakra-ui/react";
