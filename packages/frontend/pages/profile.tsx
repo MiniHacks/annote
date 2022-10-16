@@ -71,7 +71,11 @@ const NavBar = (): JSX.Element => {
       <HStack justifyContent={"space-between"}>
         <Heading fontSize={"35px"}>Annote.</Heading>
         <HStack>
-          <Button colorScheme={"whiteAlpha"} variant={"ghost"}>
+          <Button
+            onClick={() => window.open("http://localhost:3000/features")}
+            colorScheme={"whiteAlpha"}
+            variant={"ghost"}
+          >
             Features
           </Button>
           <Button
