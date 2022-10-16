@@ -43,12 +43,13 @@ export default function Hero(): JSX.Element {
       </Center>
       <Center id={"features"}>
         <Image
-          htmlHeight={"50px"}
-          htmlWidth={"70px"}
-          paddingRight={"10px"}
-          src={"/images/xIJEHn9.png"}
+          height={"60px"}
+          width={"60px"}
+          src={"/images/lgoo.png"}
           alt={"Download on the app store."}
-          paddingBottom={"50px"}
+          borderRadius={"12px"}
+          marginTop={"-50px"}
+          marginRight={"10px"}
         />
         <Image
           htmlHeight={"100px"}

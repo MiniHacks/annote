@@ -1,4 +1,4 @@
-import { Box, Heading, Text, VStack } from "@chakra-ui/react";
+import { chakra, Box, Heading, Text, VStack } from "@chakra-ui/react";
 import React from "react";
 
 function Bar({
@@ -16,7 +16,7 @@ function Bar({
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        padding: "20px 5%",
+        padding: "100px 5%",
         minHeight: "300px",
         ...style,
       }}
@@ -33,11 +33,18 @@ export default function Bars(): JSX.Element {
       <Bar
         leftContent={
           <>
-            <Heading>Text-to-Speech Recognition</Heading>
-            <Box>Test</Box>
+            <Heading mb={4}>Never be confused by your notes again.</Heading>
+            <Box>Draw, write, and annotate your notes in real-time.</Box>
           </>
         }
-        rightContent={<>hi</>}
+        rightContent={
+          <chakra.img
+            borderRadius={"10px"}
+            boxShadow={"0px 4px 12px rgba(0, 0, 0, 0.1)"}
+            src={"/images/tts.png"}
+            height={"400px"}
+          />
+        }
         style={{ backgroundColor: "rgba(0,0,0,0.9)", color: "white" }}
       />
       <Bar
@@ -47,17 +54,26 @@ export default function Bars(): JSX.Element {
             <Box>We generate one line and in-depth summaries using AI.</Box>
           </>
         }
-        leftContent={<>hi</>}
+        leftContent={
+          <chakra.img
+            borderRadius={"10px"}
+            boxShadow={"0px 4px 12px rgba(0, 0, 0, 0.1)"}
+            src={"/images/dash.png"}
+            height={"400px"}
+          />
+        }
         style={{ backgroundColor: "white", color: "black" }}
       />
       <Bar
         leftContent={
           <>
-            <Heading>Replayable Recording</Heading>
-            <Box>Test</Box>
+            <Heading mb={4}>Replayable Recording</Heading>
+            <Box>Search, tag, and review your notes efficiently.</Box>
           </>
         }
-        rightContent={<>hi</>}
+        rightContent={
+          <chakra.img src={"/images/replay.png"} height={"400px"} />
+        }
         style={{ backgroundColor: "rgba(0,0,0,0.9)", color: "white" }}
       />
       <Bar
@@ -70,7 +86,7 @@ export default function Bars(): JSX.Element {
             </Box>
           </>
         }
-        leftContent={<>hi</>}
+        leftContent={<chakra.img src={"/images/dino.png"} height={"150px"} />}
       />
       <Bar
         leftContent={
