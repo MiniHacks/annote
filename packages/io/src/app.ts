@@ -6,6 +6,7 @@ import express, { Request, Response } from "express";
 import { createServer } from "http";
 import { Server } from "socket.io";
 import fs from "fs";
+import { v4 } from "uuid";
 import axios from "axios";
 
 const app = express();
@@ -21,6 +22,21 @@ const PORT = +(process?.env?.IO_PORT ?? 5001);
 
 app.get("/", (req: Request, res: Response) => {
   res.send("hello world :)");
+});
+
+app.post("/save", async (req: Request, res: Response) => {
+  // take transcript data and a buffer for the image of the canvas drawing
+
+  const id = v4();
+  const transcript = req.body.transcript;
+  const image = req.body.image;
+
+  // save the image to a file
+
+  fs.writeFileSync(`./images/${id}.png`, image);
+
+  // save the transcript to mongodb
+  // return the id of the transcript
 });
 
 io.on("connection", (socket) => {
