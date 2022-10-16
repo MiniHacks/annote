@@ -96,7 +96,7 @@ app.post("/save", async (req: Request, res: Response) => {
       image: `${id}.png`,
       owner: name,
       folder: req.body.folder,
-      name: req.body.name,
+      name: req.body.title,
     });
     res.json({ success: "saved", id });
   });

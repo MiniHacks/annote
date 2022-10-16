@@ -308,9 +308,7 @@ const RightSide = ({ data }: { data: any }): JSX.Element => {
         <Search search={search} setSearch={setSearch} />
       </HStack>
       <HStack wrap={"wrap"} spacing={0}>
-        {notes.map((note: Note) => (
-          <Card note={note} />
-        ))}
+        {notes.map((note: Note) => <Card note={note} />).reverse()}
       </HStack>
     </Box>
   );
