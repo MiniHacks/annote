@@ -17,6 +17,8 @@
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "framer-motion": "^6",
+    "get-user-media-promise": "^1.1.4",
+    "microphone-stream": "^6.0.1",
     "next": "12.3.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"

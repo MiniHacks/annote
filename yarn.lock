@@ -2636,7 +2636,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"buffer-from@npm:^1.0.0":
+"buffer-from@npm:^1.0.0, buffer-from@npm:^1.1.1":
   version: 1.1.2
   resolution: "buffer-from@npm:1.1.2"
   checksum: 0448524a562b37d4d7ed9efd91685a5b77a50672c556ea254ac9a6d30e3403a517d8981f10e565db24e8339413b43c97ca2951f10e399c6125a0d8911f5679bb
@@ -4271,6 +4271,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"get-user-media-promise@npm:^1.1.4":
+  version: 1.1.4
+  resolution: "get-user-media-promise@npm:1.1.4"
+  checksum: 6656622e6f9f5ca93b7c56b7ae57a4b6dc9d91959a0b3a7f063b7af67ad03a07c0ef80e4bbcec8a5a762d2e56b66637db98eb39bf2c2e7478545f836ce4227da
+  languageName: node
+  linkType: hard
+
 "glob-parent@npm:^5.1.2, glob-parent@npm:~5.1.2":
   version: 5.1.2
   resolution: "glob-parent@npm:5.1.2"
@@ -5069,6 +5076,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"microphone-stream@npm:^6.0.1":
+  version: 6.0.1
+  resolution: "microphone-stream@npm:6.0.1"
+  dependencies:
+    buffer-from: ^1.1.1
+    readable-stream: ^3.6.0
+  checksum: 6cc687c495ee338c73b9b44eb75f7b97f56ad4ff31adf6a6c1e2bbfdf31cdc8199643cdb9474fcc208ea290332c3b83a9921cc37002838ef5696e1efd4101886
+  languageName: node
+  linkType: hard
+
 "mime-db@npm:1.52.0":
   version: 1.52.0
   resolution: "mime-db@npm:1.52.0"
@@ -5227,6 +5244,8 @@ __metadata:
     eslint-plugin-react: ^7.28.0
     eslint-plugin-react-hooks: ^4.3.0
     framer-motion: ^6
+    get-user-media-promise: ^1.1.4
+    microphone-stream: ^6.0.1
     next: 12.3.0
     prettier: ^2.5.1
     react: 18.2.0

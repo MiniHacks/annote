@@ -7,7 +7,10 @@ const config: CapacitorConfig = {
   webDir: "out",
   bundledWebRuntime: false,
   server: {
-    url: "http://172.17.96.158:3000",
+    url: "https://172.17.96.158:3000",
+    hostname: "localhost",
+    iosScheme: "https",
+    androidScheme: "https",
   },
 };
 

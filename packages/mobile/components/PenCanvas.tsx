@@ -144,7 +144,7 @@ const PenCanvas = () => {
   );
 
   return (
-    <div style={{ height: "100vh", width: "100vw" }}>
+    <div>
       <style>{`
       body { background-color: #FDFFED }
       `}</style>
@@ -161,13 +161,10 @@ const PenCanvas = () => {
         // @ts-ignore
         onMouseUp={handleTouchEnd}
         style={{
-          position: "absolute",
           background:
             "repeating-linear-gradient(#FDFFED, #FDFFED 25px, #E9EBDA 26px, #E9EBDA 27px)",
-          top: 0,
-          left: 0,
-          width: "50%",
-          height: "1500px",
+          width: "50vw",
+          height: "100%",
           touchAction: "none",
         }}
       >
