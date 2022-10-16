@@ -70,7 +70,7 @@ const Home: NextPage = () => {
         <Image
           htmlHeight={"50%"}
           htmlWidth={"50%"}
-          src={"https://i.imgur.com/x07GcfG.png"}
+          src={"https://i.imgur.com/8tYEs8l.png"}
           alt={"ipad image"}
         />
       </Center>
