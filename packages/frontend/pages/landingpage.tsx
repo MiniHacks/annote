@@ -49,7 +49,7 @@ const Home: NextPage = () => {
   console.log(status);
 
   return (
-    <Box backgroundColor={"yellow.50"} minHeight={"100vh"}>
+    <Box backgroundColor={"whiteAlpha.50"} minHeight={"100vh"}>
       <NavBar />
       <Box>
         <VStack justifyContent={"start"} paddingTop={"30px"}>
