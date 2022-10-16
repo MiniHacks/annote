@@ -69,7 +69,7 @@ const NavBar = (): JSX.Element => {
         <Heading fontSize={"35px"}>Annote.</Heading>
         <HStack>
           <Button
-              onClick={() => window.open("http://localhost:3000/features")}
+            onClick={() => window.open("http://localhost:3000/features")}
             colorScheme={"whiteAlpha"}
             variant={"ghost"}
           >
@@ -162,7 +162,7 @@ const Home: NextPage = () => {
           paddingTop={"5%"}
           px={"175px"}
         >
-          <Heading>Text-to-speech recognition</Heading>
+          <Heading>Text-to-Speech Recognition</Heading>
           <Box>Test</Box>
         </Box>
         {/* top right box */}
