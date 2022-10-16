@@ -53,6 +53,7 @@ const NavBar = (): JSX.Element => {
             _hover={{
               backgroundColor: "whiteAlpha.300",
             }}
+            onClick={() => router.push("/login")}
           >
             Start Now
           </Button>

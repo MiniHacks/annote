@@ -65,6 +65,8 @@ app.post("/folder", (req: Request, res: Response) => {
   });
 });
 
+app.use(express.static("images"));
+
 app.post("/save", async (req: Request, res: Response) => {
   // take transcript data and a buffer for the image of the canvas drawing
 
@@ -77,8 +79,14 @@ app.post("/save", async (req: Request, res: Response) => {
   fs.writeFileSync(`./images/${id}.png`, image);
 
   // save the transcript to mongodb
-  // return the id of the transcript
+
+  client.connect().then(async () => {
+    const collection = client.db("annote").collection("notes");
+    await collection.insertOne({ id, transcript, image: `${id}.png` });
+    res.json({ success: "saved", id });
+  });
 });
+// return the id of the transcript
 
 io.on("connection", (socket) => {
   console.log(`user ${socket.id} connected`);

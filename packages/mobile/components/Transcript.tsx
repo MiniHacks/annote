@@ -1,8 +1,28 @@
-import { Box, Button, HStack, Text, VStack } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import {
+  Box,
+  Button,
+  HStack,
+  Input,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
+  Select,
+  Text,
+  useDisclosure,
+  VStack,
+} from "@chakra-ui/react";
+import React, { useEffect, useState } from "react";
 import io from "socket.io-client";
 import RecordRTC, { MediaStreamRecorder } from "recordrtc";
 import { clearInterval } from "timers";
+import { useRouter } from "next/router";
+import { Storage } from "@capacitor/storage";
+import getAPI from "../getAPI";
+import { FolderType } from "../pages/dashboard";
 
 const NUM = 8;
 
@@ -107,7 +127,20 @@ export default function Transcript(): JSX.Element {
   const [completeData, setCompleteData] = useState<TranscriptData[]>([]);
   const [inProgressData, setInProgressData] = useState<TranscriptData[]>([]);
 
+  const [folders, setFolders] = useState<FolderType[]>([]);
+
+  const [hasEnded, setHasEnded] = useState(false);
+  const [isRecording, setIsRecording] = useState(false);
+
   useEffect(() => {
+    Storage.get({ key: "name" }).then(({ value: name }) => {
+      getAPI(name ?? "")
+        .get("/dashboard")
+        .then((data) => {
+          setFolders(data.folders);
+        });
+    });
+
     socket.on("connect", () => {
       setIsConnected(true);
     });
@@ -117,10 +150,12 @@ export default function Transcript(): JSX.Element {
     });
 
     socket.on("tiny_data", (data) => {
+      if (hasEnded) return;
       setInProgressData((pv) => [...pv, data]);
     });
 
     socket.on("complete_data", (data) => {
+      if (hasEnded) return;
       setCompleteData((pv) => [...pv, data]);
       setInProgressData([]);
     });
@@ -128,9 +163,11 @@ export default function Transcript(): JSX.Element {
     return () => {
       socket.off("connect");
       socket.off("disconnect");
-      socket.off("pong");
+      socket.off("tiny_data");
+      socket.off("complete_data");
     };
-  }, []);
+  }, [hasEnded]);
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   // const startRecording = () => {
   //   recordRTC = new MicrophoneStream();
@@ -152,6 +189,7 @@ export default function Transcript(): JSX.Element {
   // };
 
   const wavRecord = () => {
+    setIsRecording(true);
     navigator.mediaDevices
       .getUserMedia(constraints)
       .then((stream: MediaStream) => {
@@ -183,12 +221,21 @@ export default function Transcript(): JSX.Element {
       });
   };
 
+  const router = useRouter();
+
   const stopRecording = () => {
     // console.log("stopButton clicked");
 
     // gumStream?.getAudioTracks()[0].stop();
     recordRTC?.stopRecording();
-    if (interval) clearInterval(interval);
+    if (interval)
+      try {
+        clearInterval(interval);
+      } catch (e) {
+        console.log(e);
+      }
+
+    router.push("/dashboard");
   };
 
   const complete = completeData.filter(
@@ -218,10 +265,48 @@ export default function Transcript(): JSX.Element {
   return (
     <VStack spacing={2} width={"100%"}>
       <HStack spacing={2} justifyContent={"center"} width={"100%"} mt={4}>
-        <Button disabled={!isConnected} onClick={wavRecord}>
-          start
+        <Button
+          disabled={!isConnected}
+          onClick={wavRecord}
+          colorScheme={"teal"}
+          display={!isRecording ? "block" : "none"}
+        >
+          start recording
         </Button>
-        <Button onClick={stopRecording}>stop</Button>
+        <Button
+          onClick={() => {
+            setHasEnded(true);
+            onOpen();
+          }}
+          display={isRecording ? "block" : "none"}
+        >
+          stop recording
+        </Button>
+        <Modal onClose={stopRecording} isOpen={isOpen} isCentered>
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>Recording has ended.</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody>
+              <VStack spacing={4}>
+                <Select
+                  variant={"outline"}
+                  placeholder={folders[0]?.name ?? ""}
+                >
+                  {folders.map((folder) => (
+                    <option value={folder.name}>{folder.name}</option>
+                  ))}
+                </Select>
+                <Input placeholder={"Enter a name for this recording"} />
+              </VStack>
+            </ModalBody>
+            <ModalFooter>
+              <Button onClick={onClose} colorScheme={"teal"}>
+                Continue
+              </Button>
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
       </HStack>
       {complete.map((d) =>
         d.result.segments.map((s) => (

@@ -62,6 +62,7 @@ const Folder = ({
       background={active ? "#121212" : "rgba(0,0,0,0)"}
       py={3}
       px={4}
+      my={1}
       borderRadius={"10px 0 0 10px"}
       transition={"all 0.2s ease-in-out"}
       _hover={{
@@ -114,7 +115,7 @@ const FolderButton = (): JSX.Element => {
           backgroundColor: "rgba(255,255,255,0)",
         }}
       >
-        + Create a new folder here
+        + New folder
       </Button>
 
       <Modal
@@ -152,7 +153,7 @@ type Note = {
   summary: string;
 };
 
-type FolderType = {
+export type FolderType = {
   name: string;
 };
 
@@ -169,6 +170,9 @@ const LeftSide = ({ data }: { data: any }): JSX.Element => {
         width: "20%",
         backgroundColor: "#282828",
         paddingLeft: "30px",
+        position: "sticky",
+        top: 0,
+        left: 0,
       }}
     >
       <Box>
@@ -187,7 +191,7 @@ const LeftSide = ({ data }: { data: any }): JSX.Element => {
           Annote.
         </Heading>
         <Divider
-          borderColor={"white"}
+          borderColor={"rgba(255,255,255,0.3)"}
           marginLeft={"-60px"}
           width={"calc(100%)+60px"}
         />
