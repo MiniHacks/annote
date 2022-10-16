@@ -2015,6 +2015,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/recordrtc@npm:^5.6.9":
+  version: 5.6.9
+  resolution: "@types/recordrtc@npm:5.6.9"
+  checksum: f573467a4f152384f4bfb88c9007a2de0a1a453a662d37cefb168da4b1669cc5f2fdd09e169d31f3625c28624f94860e1c96f19f7842fb3a7d3f40d89d79356b
+  languageName: node
+  linkType: hard
+
 "@types/scheduler@npm:*":
   version: 0.16.2
   resolution: "@types/scheduler@npm:0.16.2"
@@ -2809,6 +2816,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"component-bind@npm:~1.0.0":
+  version: 1.0.0
+  resolution: "component-bind@npm:1.0.0"
+  checksum: 746c5810b9f8735643840ad04072e1ab817444d44dc1aadc813f1f1a17c47c27616584caa0db93db7e687bfe73b65073d8246c785bcdac80f8f3627d3bb26883
+  languageName: node
+  linkType: hard
+
 "compute-scroll-into-view@npm:1.0.14":
   version: 1.0.14
   resolution: "compute-scroll-into-view@npm:1.0.14"
@@ -2998,6 +3012,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"debug@npm:~2.2.0":
+  version: 2.2.0
+  resolution: "debug@npm:2.2.0"
+  dependencies:
+    ms: 0.7.1
+  checksum: 06a55becb91b82c8084a2d7d3f73809180596c8ebbddd373a58c544efd3d66885dc0d80f9cda7e0613b2883a19c2b1d91550dc5dab3e0d4ca6fd42dc61784aa5
+  languageName: node
+  linkType: hard
+
 "deep-is@npm:^0.1.3":
   version: 0.1.4
   resolution: "deep-is@npm:0.1.4"
@@ -3127,6 +3150,19 @@ __metadata:
   dependencies:
     iconv-lite: ^0.6.2
   checksum: bb98632f8ffa823996e508ce6a58ffcf5856330fde839ae42c9e1f436cc3b5cc651d4aeae72222916545428e54fd0f6aa8862fd8d25bdbcc4589f1e3f3715e7f
+  languageName: node
+  linkType: hard
+
+"engine.io-client@npm:~6.2.3":
+  version: 6.2.3
+  resolution: "engine.io-client@npm:6.2.3"
+  dependencies:
+    "@socket.io/component-emitter": ~3.1.0
+    debug: ~4.3.1
+    engine.io-parser: ~5.0.3
+    ws: ~8.2.3
+    xmlhttprequest-ssl: ~2.0.0
+  checksum: c09fb6429503a4a8a599ec1c4f67f100202e6e06588b67b81d386a4ebf8e81160cf7501ad6770ffe0a04575f41868f0a4cbf330b85de3f7cd24ebcf2bf9fc660
   languageName: node
   linkType: hard
 
@@ -4637,6 +4673,7 @@ __metadata:
     express: ^4.18.1
     nodemon: ^2.0.19
     socket.io: ^4.5.2
+    socket.io-stream: ^0.9.1
     typescript: ^4.8.3
   languageName: unknown
   linkType: soft
@@ -5238,6 +5275,7 @@ __metadata:
     "@types/node": 18.7.18
     "@types/react": 18.0.20
     "@types/react-dom": 18.0.6
+    "@types/recordrtc": ^5.6.9
     "@typescript-eslint/eslint-plugin": ^5.37.0
     "@typescript-eslint/parser": ^5.37.0
     cross-env: ^7.0.3
@@ -5259,9 +5297,18 @@ __metadata:
     prettier: ^2.5.1
     react: 18.2.0
     react-dom: 18.2.0
+    recordrtc: ^5.6.2
+    socket.io-client: ^4.5.3
     typescript: 4.8.3
   languageName: unknown
   linkType: soft
+
+"ms@npm:0.7.1":
+  version: 0.7.1
+  resolution: "ms@npm:0.7.1"
+  checksum: 73b453879f26fe14ae41388cb3fb7483aa81e478950b3feff8433959a8e693b20797b0ed85e20fbe86ec65f094b283360987e05817979721513e7ec622dcde96
+  languageName: node
+  linkType: hard
 
 "ms@npm:2.0.0":
   version: 2.0.0
@@ -6113,6 +6160,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"recordrtc@npm:^5.6.2":
+  version: 5.6.2
+  resolution: "recordrtc@npm:5.6.2"
+  checksum: 4be66e42fd427a86e5726afcf061963a5a16d7900d535debd2754d63ee9768d6fda8b5a7592e9835ac4b98b37d4dd73490b793f82c038d45e95dcdcc27f57d2c
+  languageName: node
+  linkType: hard
+
 "regenerator-runtime@npm:^0.13.4":
   version: 0.13.9
   resolution: "regenerator-runtime@npm:0.13.9"
@@ -6442,6 +6496,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"socket.io-client@npm:^4.5.3":
+  version: 4.5.3
+  resolution: "socket.io-client@npm:4.5.3"
+  dependencies:
+    "@socket.io/component-emitter": ~3.1.0
+    debug: ~4.3.2
+    engine.io-client: ~6.2.3
+    socket.io-parser: ~4.2.0
+  checksum: ebd2dbddece9e8b5926e8f20ed3d0620bdb07de70ece8fb6fa786690f543f420e2ea784a37e46ac470af3cc11f0199d9ecabd8f30eaf63c80974c3eaa7e8a9b0
+  languageName: node
+  linkType: hard
+
 "socket.io-parser@npm:~4.2.0":
   version: 4.2.1
   resolution: "socket.io-parser@npm:4.2.1"
@@ -6449,6 +6515,16 @@ __metadata:
     "@socket.io/component-emitter": ~3.1.0
     debug: ~4.3.1
   checksum: 2582202f22538d7e6b4436991378cb4cea3b2f8219cda24923ae35afd291ab5ad6120e7d093e41738256b6c6ad10c667dd25753c2d9a2340fead04e9286f152d
+  languageName: node
+  linkType: hard
+
+"socket.io-stream@npm:^0.9.1":
+  version: 0.9.1
+  resolution: "socket.io-stream@npm:0.9.1"
+  dependencies:
+    component-bind: ~1.0.0
+    debug: ~2.2.0
+  checksum: 7521c19a33fec62443da4dc1525f882d6c83f70b5c96fccb747537994d3b949ab1290887f62c185497ed24a04c0902a7dc10cdcc6544e42eeab804fb5a772b72
   languageName: node
   linkType: hard
 
@@ -7086,6 +7162,13 @@ __metadata:
   version: 11.0.1
   resolution: "xmlbuilder@npm:11.0.1"
   checksum: 7152695e16f1a9976658215abab27e55d08b1b97bca901d58b048d2b6e106b5af31efccbdecf9b07af37c8377d8e7e821b494af10b3a68b0ff4ae60331b415b0
+  languageName: node
+  linkType: hard
+
+"xmlhttprequest-ssl@npm:~2.0.0":
+  version: 2.0.0
+  resolution: "xmlhttprequest-ssl@npm:2.0.0"
+  checksum: 1e98df67f004fec15754392a131343ea92e6ab5ac4d77e842378c5c4e4fd5b6a9134b169d96842cc19422d77b1606b8df84a5685562b3b698cb68441636f827e
   languageName: node
   linkType: hard
 

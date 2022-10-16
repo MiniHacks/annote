@@ -21,13 +21,16 @@
     "microphone-stream": "^6.0.1",
     "next": "12.3.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "recordrtc": "^5.6.2",
+    "socket.io-client": "^4.5.3"
   },
   "devDependencies": {
     "@capacitor/cli": "^4.3.0",
     "@types/node": "18.7.18",
     "@types/react": "18.0.20",
     "@types/react-dom": "18.0.6",
+    "@types/recordrtc": "^5.6.9",
     "@typescript-eslint/eslint-plugin": "^5.37.0",
     "@typescript-eslint/parser": "^5.37.0",
     "cross-env": "^7.0.3",
