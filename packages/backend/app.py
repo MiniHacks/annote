@@ -39,7 +39,7 @@ async def revise(socketId: str, partial: int, num: int):
     # create a temp output file below using a python package
     file = tempfile.mktemp(suffix=".webm")
     # concatenate the last num partials using ffmpeg
-    files = [getFilePath(socketId, i) for i in range(partial - num + 1, partial + 1)]
+    files = [ffmpeg.input(getFilePath(socketId, i)) for i in range(partial - num + 1, partial + 1)]
     ffmpeg.concat(*files, v=0, a=1).output(file).run()
 
     result = medium.transcribe(file)
