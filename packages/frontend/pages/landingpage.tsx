@@ -52,7 +52,7 @@ const Home: NextPage = () => {
     <Box backgroundColor={"yellow.50"} minHeight={"100vh"}>
       <NavBar />
       <Box>
-        <VStack minHeight={"200px"} justifyContent={"center"}>
+        <VStack justifyContent={"start"} paddingTop={"30px"}>
           <Heading
             style={{
               textAlign: "center",
@@ -68,13 +68,21 @@ const Home: NextPage = () => {
       </Box>
       <Center>
         <Image
-          htmlHeight={"60%"}
-          htmlWidth={"60%"}
-          src={"https://i.imgur.com/V27w0oH.png"}
-          alt={"Download on the app store."}
+          htmlHeight={"50%"}
+          htmlWidth={"50%"}
+          src={"https://i.imgur.com/x07GcfG.png"}
+          alt={"ipad image"}
         />
       </Center>
       <Center>
+        <Image
+          htmlHeight={"50px"}
+          htmlWidth={"70px"}
+          paddingRight={"10px"}
+          src={"https://i.imgur.com/xIJEHn9.png"}
+          alt={"Download on the app store."}
+          paddingBottom={"50px"}
+        />
         <Image
           htmlHeight={"100px"}
           htmlWidth={"200px"}
@@ -82,6 +90,7 @@ const Home: NextPage = () => {
             "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/2560px-Download_on_the_App_Store_Badge.svg.png"
           }
           alt={"Download on the app store."}
+          paddingBottom={"50px"}
         />
       </Center>
     </Box>
