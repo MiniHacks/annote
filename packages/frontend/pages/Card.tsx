@@ -1,6 +1,19 @@
 import Image from "next/image";
 import { Box, Heading, Text, Stack, useColorModeValue } from "@chakra-ui/react";
 
+import "@fontsource/roboto-slab/latin-300.css";
+import "@fontsource/roboto-slab/latin-400.css";
+import "@fontsource/roboto-slab/latin-500.css";
+import "@fontsource/roboto-slab/latin-600.css";
+import "@fontsource/roboto-slab/latin-700.css";
+import "@fontsource/roboto-slab/latin-900.css";
+
+import "@fontsource/inter/200.css";
+import "@fontsource/inter/300.css";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/700.css";
+import "@fontsource/inter/900.css";
+
 export default function Cards() {
   return (
     <Box
@@ -8,7 +21,7 @@ export default function Cards() {
       as={"button"}
       margin={"20px !important"}
       maxWidth={"300px"}
-      height={"50vh"}
+      height={"60vh"}
       w={"full"}
       bg={useColorModeValue("white", "gray.900")}
       boxShadow={"0px 4px 12px rgba(0, 0, 0, 0.1)"}
@@ -18,7 +31,7 @@ export default function Cards() {
       _hover={{ boxShadow: "0px 6px 14px rgba(0, 0, 0, 0.2)" }}
       onClick={() => window.open("https://anshpa.tel")}
     >
-      <Box h={"285px"} bg={"gray.100"} mt={-6} mx={-6} mb={6} pos={"top"} />
+      <Box h={"310px"} bg={"gray.100"} mt={-6} mx={-6} mb={6} pos={"top"} />
       <Stack textAlign={"left"}>
         <Text
           color={"gray.500"}
@@ -33,7 +46,6 @@ export default function Cards() {
         <Heading
           color={useColorModeValue("gray.700", "white")}
           fontSize={"20px"}
-          fontFamily={"body"}
           width={"100%"}
         >
           Projectile Motion
