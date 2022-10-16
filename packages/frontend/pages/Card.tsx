@@ -17,22 +17,24 @@ import "@fontsource/inter/900.css";
 export default function Cards() {
   return (
     <Box
+      alignItems={"start"}
       justifyContent={"left"}
+      display={"flex"}
+      flexDirection={"column"}
       as={"button"}
       margin={"20px !important"}
       maxWidth={"300px"}
-      height={"60vh"}
       w={"full"}
       bg={useColorModeValue("white", "gray.900")}
       boxShadow={"0px 4px 12px rgba(0, 0, 0, 0.1)"}
       rounded={"md"}
-      p={6}
+      p={0}
       overflow={"hidden"}
       _hover={{ boxShadow: "0px 6px 14px rgba(0, 0, 0, 0.2)" }}
       onClick={() => window.open("https://anshpa.tel")}
     >
-      <Box h={"310px"} bg={"gray.100"} mt={-6} mx={-6} mb={6} pos={"top"} />
-      <Stack textAlign={"left"}>
+      <Box h={"310px"} width={"100%"} bg={"gray.100"} mt={-6} mb={6} />
+      <Stack textAlign={"left"} p={4}>
         <Text
           color={"gray.500"}
           textTransform={"uppercase"}
