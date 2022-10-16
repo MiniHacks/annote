@@ -13,10 +13,12 @@ import {
   MenuList,
   MenuItem,
   MenuGroup,
+  Image,
   useColorModeValue,
 } from "@chakra-ui/react";
 
 import { useSession } from "next-auth/react";
+
 import PageLayout from "../components/Layout/PageLayout";
 
 function SocialProfileWithImage() {
@@ -28,9 +30,10 @@ function SocialProfileWithImage() {
         maxW={"350px"}
         w={"full"}
         bg={useColorModeValue("white", "gray.800")}
-        boxShadow={"2xl"}
+        boxShadow={"0px 4px 12px rgba(0, 0, 0, 0.1)"}
         rounded={"md"}
         overflow={"hidden"}
+        _hover={{ boxShadow: "0px 6px 14px rgba(0, 0, 0, 0.2)" }}
       >
         <Box p={6}>
           <Stack spacing={0} align={"center"} mb={5}>
@@ -50,6 +53,7 @@ function SocialProfileWithImage() {
               transform: "translateY(-2px)",
               boxShadow: "lg",
             }}
+            onClick={() => window.open("http://localhost:3000/dashboard")}
           >
             View annotes
           </Button>
