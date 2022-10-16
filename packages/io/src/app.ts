@@ -81,7 +81,7 @@ app.post("/save", async (req: Request, res: Response) => {
   // save the image to a file
 
   fs.mkdirSync(`./images/`, { recursive: true });
-  fs.writeFileSync(`./images/${id}.png`, image);
+  fs.writeFileSync(`./images/${id}.png`, image, "base64");
 
   // save the transcript to mongodb
 
