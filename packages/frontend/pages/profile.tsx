@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+
 import {
   Heading,
   Box,
@@ -13,7 +14,6 @@ import {
   MenuList,
   MenuItem,
   MenuGroup,
-  Image,
   useColorModeValue,
 } from "@chakra-ui/react";
 
