@@ -240,6 +240,8 @@ export default function Transcript(): JSX.Element {
 
     await getAPI(name ?? "").post("/save", {
       transcript: completeData,
+      folder: document.querySelector("#recording_folder")?.value,
+      name: document.querySelector("#recording_name")?.value,
       image: document.querySelector("canvas")?.toDataURL(),
     });
 
@@ -299,13 +301,17 @@ export default function Transcript(): JSX.Element {
               <VStack spacing={4}>
                 <Select
                   variant={"outline"}
+                  id={"recording_folder"}
                   placeholder={folders[0]?.name ?? ""}
                 >
                   {folders.map((folder) => (
                     <option value={folder.name}>{folder.name}</option>
                   ))}
                 </Select>
-                <Input placeholder={"Enter a name for this recording"} />
+                <Input
+                  id={"recording_name"}
+                  placeholder={"Enter a name for this recording"}
+                />
               </VStack>
             </ModalBody>
             <ModalFooter>
