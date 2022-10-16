@@ -55,7 +55,7 @@ const Home: NextPage = () => {
   console.log(status);
 
   return (
-    <PageLayout title={"geese, by minihacks"}>
+    <PageLayout title={"Annote: your live class assistant"}>
       <Box backgroundColor={"yellow.50"} minHeight={"100vh"}>
         <NavBar />
         <Box>

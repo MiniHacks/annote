@@ -1,15 +1,13 @@
 import { NextPage } from "next";
 import dynamic from "next/dynamic";
-import { Box, HStack, Image } from "@chakra-ui/react";
-import React from "react";
+import { chakra, Box, HStack, Image } from "@chakra-ui/react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import PageLayout from "../components/Layout/PageLayout";
+import getAPI from "../getAPI";
+import ReadPenCanvas from "../components/ReadPenCanvas";
 
-const PenCanvas = dynamic(() => import("../components/PenCanvas"), {
-  ssr: false,
-});
-
-const Transcript = dynamic(() => import("../components/Transcript"), {
+const ReadTranscript = dynamic(() => import("../components/ReadTranscript"), {
   ssr: false,
 });
 
@@ -100,21 +98,26 @@ const RecordNavBar = (): JSX.Element => {
 };
 
 const Home: NextPage = () => {
+  const router = useRouter();
+  const { id } = router.query;
+
+  const [transcript, setTranscript] = useState([]);
+
+  useEffect(() => {
+    console.log("id", id);
+    if (!id) return;
+    getAPI("")
+      .get(`/find?id=${id}`)
+      .then((res) => {
+        setTranscript(res[0]?.transcript);
+      });
+  }, [id]);
+
   return (
-    <PageLayout title={"geese, by minihacks"}>
-      <Box
-        style={{
-          position: "fixed",
-          top: "0",
-          left: "0",
-          width: "50%",
-        }}
-      >
-        <RecordNavBar />
-      </Box>
+    <PageLayout title={"Annote Review"}>
       <Box style={{ display: "flex", maxHeight: "100vh" }}>
-        <PenCanvas />
-        <Transcript />
+        <ReadPenCanvas />
+        <ReadTranscript complete={transcript} />
       </Box>
     </PageLayout>
   );

@@ -19,14 +19,14 @@ import {
   useBoolean,
   useDisclosure,
 } from "@chakra-ui/react";
-import PageLayout from "../components/Layout/PageLayout";
 import React, { useState } from "react";
+import PageLayout from "../components/Layout/PageLayout";
 import "@fontsource/roboto-slab/latin-300.css";
 import "@fontsource/roboto-slab/latin-400.css";
 import "@fontsource/roboto-slab/latin-500.css";
 import "@fontsource/roboto-slab/latin-600.css";
 
-//TODO:
+// TODO:
 //      Write the functions so we can set the new folder names
 //      FONTS
 //      Allow users to select colors.
@@ -63,8 +63,8 @@ const FolderButton = (): JSX.Element => {
       <Button
         onClick={onOpen}
         px={-20}
-        variant="ghost"
-        colorScheme="whiteAlpha"
+        variant={"ghost"}
+        colorScheme={"whiteAlpha"}
       >
         + Create a new folder here
       </Button>
@@ -82,12 +82,12 @@ const FolderButton = (): JSX.Element => {
           <ModalBody pb={6}>
             <FormControl>
               <FormLabel>Folder Name</FormLabel>
-              <Input ref={initialRef} placeholder="Folder name" />
+              <Input ref={initialRef} placeholder={"Folder name"} />
             </FormControl>
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="green" mr={3}>
+            <Button colorScheme={"green"} mr={3}>
               Yes
             </Button>
             <Button onClick={onClose}>Cancel</Button>
@@ -100,7 +100,7 @@ const FolderButton = (): JSX.Element => {
 
 const Home: NextPage = () => {
   return (
-    <PageLayout title={"geese, by minihacks"}>
+    <PageLayout title={"Annote: your live class assistant"}>
       <Box
         style={{
           display: "flex",
@@ -128,12 +128,12 @@ const Home: NextPage = () => {
             Annote.
           </Heading>
           <Divider
-            borderColor="white"
+            borderColor={"white"}
             marginLeft={"-60px"}
             width={"calc(100%)+60px"}
           />
 
-          {/*Current Notes*/}
+          {/* Current Notes */}
           <Box
             style={{
               display: "flex",
@@ -145,18 +145,18 @@ const Home: NextPage = () => {
             }}
           >
             <Folder />
-            <Folder active={true} />
+            <Folder active />
             <Folder />
           </Box>
         </Box>
         <Box>
-          {/*TODO: Remove Hover
-             Make a function that makes a new folder*/}
-          {/*Create Folder Button*/}
+          {/* TODO: Remove Hover
+             Make a function that makes a new folder */}
+          {/* Create Folder Button */}
           <FolderButton />
-          {/*Email here*/}
+          {/* Email here */}
           <Divider
-            borderColor="white"
+            borderColor={"white"}
             marginLeft={"-60px"}
             width={"calc(100%)+60px"}
           />

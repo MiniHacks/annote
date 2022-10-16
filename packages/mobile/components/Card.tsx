@@ -33,7 +33,7 @@ export default function Card({ note }: { note: Note }) {
       p={0}
       overflow={"hidden"}
       _hover={{ boxShadow: "0px 6px 14px rgba(0, 0, 0, 0.2)" }}
-      onClick={() => router.push(`/view/${note.id}`)}
+      onClick={() => router.push(`/view?id=${note.id}`)}
     >
       <Box
         h={"310px"}

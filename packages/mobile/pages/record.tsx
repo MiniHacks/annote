@@ -101,7 +101,7 @@ const RecordNavBar = (): JSX.Element => {
 
 const Home: NextPage = () => {
   return (
-    <PageLayout title={"geese, by minihacks"}>
+    <PageLayout title={"Annote: your live class assistant"}>
       <Box
         style={{
           position: "fixed",

@@ -68,11 +68,15 @@ const NavBar = (): JSX.Element => {
   console.log(status);
   return (
     <Box
-        style={{
-          position: "sticky",
-          top: "0",
-        }}
-        backgroundColor={"blackAlpha.900"} color={"white"} px={"5%"} py={3}>
+      style={{
+        position: "sticky",
+        top: "0",
+      }}
+      backgroundColor={"blackAlpha.900"}
+      color={"white"}
+      px={"5%"}
+      py={3}
+    >
       <HStack justifyContent={"space-between"}>
         <Heading fontSize={"35px"}>Annote.</Heading>
         <HStack>
@@ -141,7 +145,7 @@ const Home: NextPage = () => {
   }
   console.log(status);
   return (
-    <PageLayout title={"geese, by minihacks"}>
+    <PageLayout title={"Annote: your live class assistant"}>
       <Box backgroundColor={"yellow.50"} minHeight={"100vh"}>
         <NavBar />
         <Box>

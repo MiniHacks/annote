@@ -67,7 +67,7 @@ type TranscriptData = {
 
 let interval: NodeJS.Timeout;
 
-function Tag({ children }: { children: string[] }) {
+export function Tag({ children }: { children: string[] }) {
   return (
     <Box
       style={{
@@ -86,7 +86,7 @@ function Tag({ children }: { children: string[] }) {
   );
 }
 
-function TranscriptItem({
+export function TranscriptItem({
   data,
   complete,
 }: {
