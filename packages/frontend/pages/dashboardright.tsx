@@ -10,18 +10,6 @@ import {
 import { BiSearchAlt2 } from "react-icons/bi";
 import PageLayout from "../components/Layout/PageLayout";
 import Card from "./Card";
-import "@fontsource/roboto-slab/latin-300.css";
-import "@fontsource/roboto-slab/latin-400.css";
-import "@fontsource/roboto-slab/latin-500.css";
-import "@fontsource/roboto-slab/latin-600.css";
-import "@fontsource/roboto-slab/latin-700.css";
-import "@fontsource/roboto-slab/latin-900.css";
-
-import "@fontsource/inter/200.css";
-import "@fontsource/inter/300.css";
-import "@fontsource/inter/400.css";
-import "@fontsource/inter/700.css";
-import "@fontsource/inter/900.css";
 
 const NewNote = (): JSX.Element => {
   return (
