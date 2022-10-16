@@ -1,6 +1,7 @@
 import { ChakraProvider } from "@chakra-ui/react";
 
 import type { AppProps } from "next/app";
+import { SessionProvider } from "next-auth/react";
 import theme from "../theme";
 
 // import all roboto slab fonts
@@ -19,10 +20,13 @@ import "@fontsource/inter/900.css";
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   return (
-    <ChakraProvider theme={theme}>
-      <Component {...pageProps} />
-    </ChakraProvider>
+    <SessionProvider session={pageProps.session}>
+      <ChakraProvider theme={theme}>
+        <Component {...pageProps} />
+      </ChakraProvider>
+    </SessionProvider>
   );
 }
 
+// put sess
 export default MyApp;

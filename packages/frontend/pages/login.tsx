@@ -13,7 +13,7 @@ import {
   VStack,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import PageLayout from "../components/Layout/PageLayout";
 
 const NavBar = (): JSX.Element => {
@@ -25,7 +25,11 @@ const NavBar = (): JSX.Element => {
           <Button colorScheme={"whiteAlpha"} variant={"ghost"}>
             Features
           </Button>
-          <Button colorScheme={"whiteAlpha"} variant={"ghost"}>
+          <Button
+            colorScheme={"whiteAlpha"}
+            variant={"ghost"}
+            onClick={() => window.open("http://localhost:3000/landingpage")}
+          >
             Download
           </Button>
           <Button colorScheme={"whiteAlpha"} variant={"solid"}>
@@ -38,6 +42,14 @@ const NavBar = (): JSX.Element => {
 };
 
 const Home: NextPage = () => {
+  // get user info from session
+  const { data: session, status } = useSession();
+  // if user is logged in, redirect to profile page
+  if (status === "authenticated") {
+    window.location.href = "/profile";
+  }
+  console.log(status);
+
   return (
     <PageLayout title={"geese, by minihacks"}>
       <Box backgroundColor={"yellow.50"} minHeight={"100vh"}>
@@ -76,6 +88,7 @@ function GoogleButton() {
     </Center>
   );
 }
+
 function SimpleCard() {
   return (
     <Flex
@@ -91,8 +104,11 @@ function SimpleCard() {
             Sign in to your account
           </Heading>
           <Text fontSize={"lg"} color={"whiteAlpha.800"}>
-            to view your annotes and <Link color={"whiteAlpha.800"}>more!</Link>{" "}
-            ✏️
+            to view your annotes and{" "}
+            <Link color={"whiteAlpha.800"} textDecoration={"underline"}>
+              more!
+            </Link>
+            ✎
           </Text>
         </Stack>
         <Box>
