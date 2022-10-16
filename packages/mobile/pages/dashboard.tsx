@@ -1,4 +1,3 @@
-import type { NextPage } from "next";
 import {
   Box,
   Button,
@@ -8,6 +7,8 @@ import {
   Heading,
   HStack,
   Input,
+  InputGroup,
+  InputLeftElement,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -20,6 +21,8 @@ import {
 import React, { useEffect, useState } from "react";
 import { Storage } from "@capacitor/storage";
 import { useRouter } from "next/router";
+import { BiSearchAlt2 } from "react-icons/bi";
+import Card from "../components/Card";
 import PageLayout from "../components/Layout/PageLayout";
 import getAPI from "../getAPI";
 
@@ -153,7 +156,164 @@ type FolderType = {
   name: string;
 };
 
-const Home: NextPage = () => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const LeftSide = ({ data }: { data: any }): JSX.Element => {
+  const { username, folders, selection, setSelection } = data;
+  return (
+    <Box
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+        height: "100vh",
+        width: "20%",
+        backgroundColor: "#282828",
+        paddingLeft: "30px",
+      }}
+    >
+      <Box>
+        <Heading
+          style={{
+            color: "white",
+            fontSize: "45px",
+            backgroundColor: "black",
+            width: "calc(100% + 60px)",
+            height: "80px",
+            marginLeft: "-60px",
+            paddingLeft: "70px",
+            paddingTop: "12px",
+          }}
+        >
+          Annote.
+        </Heading>
+        <Divider
+          borderColor={"white"}
+          marginLeft={"-60px"}
+          width={"calc(100%)+60px"}
+        />
+
+        {/* Current Notes */}
+        <Box
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            width: "100%",
+            paddingTop: "10px",
+            backgroundColor: "#282828",
+          }}
+        >
+          {folders.map((folder: string) => (
+            <Folder
+              name={folder}
+              setActive={setSelection}
+              active={selection === folder}
+            />
+          ))}
+        </Box>
+      </Box>
+      <Box>
+        <FolderButton />
+        <Divider
+          borderColor={"white"}
+          marginLeft={"-60px"}
+          width={"calc(100%)+60px"}
+        />
+        <Box
+          style={{
+            color: "slategrey",
+            backgroundColor: "Black",
+            marginLeft: "-60px",
+            height: "65px",
+            paddingTop: "20px",
+            paddingLeft: "60px",
+          }}
+        >
+          {username}
+        </Box>
+      </Box>
+    </Box>
+  );
+};
+const NewNote = (): JSX.Element => {
+  const router = useRouter();
+  return (
+    <Button
+      justifyContent={"center"}
+      mx={"25px !important"}
+      backgroundColor={"#282828"}
+      color={"white"}
+      borderRadius={"20px"}
+      _hover={{ bg: "black" }}
+      _active={{ bg: "black" }}
+      fontSize={"15px"}
+      px={"40px"}
+      onClick={() => router.push("/record")}
+    >
+      + New Note
+    </Button>
+  );
+};
+const Search = (): JSX.Element => {
+  return (
+    <InputGroup>
+      <InputLeftElement
+        pointerEvents={"none"}
+        color={"white"}
+        fontSize={"1.2em"}
+        width={"40px"}
+        backgroundColor={"gray.400"}
+        borderRadius={"50%"}
+      >
+        <BiSearchAlt2 />
+      </InputLeftElement>
+      <Input
+        color={"white"}
+        placeholder={"Search for notes"}
+        _placeholder={{ color: "white" }}
+        width={"0"}
+        borderRadius={"20px"}
+        backgroundColor={"gray.400"}
+        transition={"width 0.5s ease-in-out, padding 0.1s 0.25s ease-in"}
+        paddingLeft={"24px"}
+        height={"40px"}
+        border={"none"}
+        _focus={{
+          width: "400px",
+          paddingLeft: "40px",
+          transition: "width 0.5s ease-in-out, padding 0.1s 0s ease-in",
+        }}
+      />
+    </InputGroup>
+  );
+};
+
+const RightSide = ({ data }: { data: any }): JSX.Element => {
+  return (
+    <Box
+      justifyContent={"start"}
+      backgroundColor={"yellow.50"}
+      minHeight={"100vh"}
+      px={"10px"}
+      py={"10px"}
+    >
+      <HStack spacing={0}>
+        <NewNote />
+        <Search />
+      </HStack>
+      <HStack wrap={"wrap"} spacing={0}>
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+      </HStack>
+    </Box>
+  );
+};
+
+const Home = (): JSX.Element => {
   const [username, setUsername] = useState<string>("");
 
   const [folders, setFolders] = useState<string[]>([]);
@@ -180,79 +340,25 @@ const Home: NextPage = () => {
   }, [router]);
 
   return (
-    <PageLayout title={"Dashboard | Annote: Your live study helper."}>
-      <Box
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-          height: "100vh",
-          width: "20%",
-          backgroundColor: "#282828",
-          paddingLeft: "30px",
-        }}
-      >
-        <Box>
-          <Heading
-            style={{
-              color: "white",
-              fontSize: "45px",
-              backgroundColor: "black",
-              width: "calc(100% + 60px)",
-              height: "80px",
-              marginLeft: "-60px",
-              paddingLeft: "70px",
-              paddingTop: "12px",
-            }}
-          >
-            Annote.
-          </Heading>
-          <Divider
-            borderColor={"white"}
-            marginLeft={"-60px"}
-            width={"calc(100%)+60px"}
-          />
-
-          {/* Current Notes */}
-          <Box
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              width: "100%",
-              paddingTop: "10px",
-              backgroundColor: "#282828",
-            }}
-          >
-            {folders.map((folder) => (
-              <Folder
-                name={folder}
-                setActive={setSelection}
-                active={selection === folder}
-              />
-            ))}
-          </Box>
-        </Box>
-        <Box>
-          <FolderButton />
-          <Divider
-            borderColor={"white"}
-            marginLeft={"-60px"}
-            width={"calc(100%)+60px"}
-          />
-          <Box
-            style={{
-              color: "slategrey",
-              backgroundColor: "Black",
-              marginLeft: "-60px",
-              height: "65px",
-              paddingTop: "20px",
-              paddingLeft: "60px",
-            }}
-          >
-            {username}
-          </Box>
-        </Box>
+    <PageLayout title={"Dashboard | Annote: your live study helper"}>
+      <Box display={"flex"}>
+        <LeftSide
+          data={{
+            username,
+            folders,
+            selection,
+            setSelection,
+          }}
+        />
+        <RightSide
+          data={{
+            username,
+            selection,
+            search,
+            setSearch,
+            notes,
+          }}
+        />
       </Box>
     </PageLayout>
   );
