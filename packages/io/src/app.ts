@@ -40,13 +40,15 @@ io.on("connection", (socket) => {
     });
   });
 
-  socket.on("done_with_segment", async ({ id }) => {
+  socket.on("done_with_segment", async ({ id, is_final, num }) => {
     const { data } = await axios.get(`http://127.0.0.1:8000/tiny?socketId=${socket.id}&partial=${id}`);
     console.log(data);
     socket.emit("tiny_data", data);
 
-    if (id % 4 == 0) {
-      const { data } = await axios.get(`http://127.0.0.1:8000/revise?socketId=${socket.id}&partial=${id}`);
+    if (is_final) {
+      const { data } = await axios.get(
+        `http://127.0.0.1:8000/revise?socketId=${socket.id}&partial=${id}&num=${num}`
+      );
       console.log("complete", data);
       socket.emit("complete_data", data);
     }

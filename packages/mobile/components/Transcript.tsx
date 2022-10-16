@@ -2,6 +2,7 @@ import { Button, Text, VStack } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import io from "socket.io-client";
 import RecordRTC, { MediaStreamRecorder } from "recordrtc";
+import { clearInterval } from "timers";
 
 const blobToBase64 = (blob: Blob): Promise<string | ArrayBuffer | null> => {
   const reader = new FileReader();
@@ -27,6 +28,8 @@ type TranscriptData = {
     text: string;
   };
 };
+
+let interval: Timer;
 
 export default function Transcript(): JSX.Element {
   const [isConnected, setIsConnected] = useState(socket.connected);
@@ -100,9 +103,13 @@ export default function Transcript(): JSX.Element {
           numberOfAudioChannels: 1,
         });
         recordRTC.startRecording();
-        setInterval(() => {
+        interval = setInterval(() => {
           recordRTC.stopRecording(() => {
-            socket.emit("done_with_segment", { id });
+            socket.emit("done_with_segment", {
+              id,
+              is_final: id % 4 === 0,
+              num: 4,
+            });
             id += 1;
             recordRTC.startRecording();
           });
@@ -117,7 +124,8 @@ export default function Transcript(): JSX.Element {
     console.log("stopButton clicked");
 
     // gumStream?.getAudioTracks()[0].stop();
-    recordRTC.stopRecording();
+    recordRTC?.stopRecording();
+    clearInterval(interval);
   };
 
   const complete = completeData.filter(
