@@ -26,7 +26,7 @@ async def tiny(socketId: str, partial: int):
     # result = tiny.transcribe()
     start_time = time.time()
     path = getFilePath(socketId, partial)
-    result = tiny_en.transcribe(path, "en")
+    result = tiny_en.transcribe(path, language="en")
 
     return {"time": time.time() - start_time, "path": getFilePath(socketId, partial), "result": result}
 
