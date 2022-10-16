@@ -10,6 +10,7 @@ import {
   VStack,
   Button,
   useColorModeValue,
+  Center,
 } from "@chakra-ui/react";
 
 import React from "react";
@@ -18,56 +19,154 @@ import { useSession } from "next-auth/react";
 import PageLayout from "../components/Layout/PageLayout";
 
 // Replace test data with your own
-const features = Array.apply(null, Array(1)).map((x, i) => {
-  return {
-    id: i,
-    title: "Lorem ipsum dolor sit amet",
-    text: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam.",
-  };
-});
-
-function GridListWithHeading() {
+const TitleFeatures = (): JSX.Element => {
   return (
-    <Box p={3}>
-      <Stack spacing={4} as={Container} maxW={"3xl"} textAlign={"center"}>
-        <Heading fontSize={"3xl"}>This is the headline</Heading>
-        <Text color={"gray.600"} fontSize={"xl"}>
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-          sed diam voluptua.
-        </Text>
-      </Stack>
+    <Box>
+      <Text
+        py={5}
+        textAlign={"center"}
+        color={"black"}
+        fontSize={"lg"}
+        fontWeight={"normal"}
+        mt={2}
+      >
+        Here are some of the features we have to offer
+      </Text>
+    </Box>
+  );
+};
+
+const FeatureBoxes = (): JSX.Element => {
+  return (
+    <HStack justifyContent={"center"}>
       <Box
+        alignItems={"start"}
         justifyContent={"left"}
+        display={"flex"}
+        flexDirection={"column"}
         as={"button"}
         margin={"20px !important"}
         maxWidth={"300px"}
-        height={"40vh"}
         w={"full"}
+        height={"500px"}
         bg={useColorModeValue("white", "gray.900")}
         boxShadow={"0px 4px 12px rgba(0, 0, 0, 0.1)"}
         rounded={"md"}
-        p={6}
+        p={0}
         overflow={"hidden"}
         _hover={{ boxShadow: "0px 6px 14px rgba(0, 0, 0, 0.2)" }}
+        onClick={() => window.open("https://anshpa.tel")}
       >
-        <Container maxW={"6xl"} mt={1}>
-          <SimpleGrid columns={{ base: 1, md: 2, lg: 1 }} spacing={10}>
-            {features.map((feature) => (
-              <HStack key={feature.id} align={"top"}>
-                <Box color={"green.400"} px={2} />
-                <VStack align={"start"}>
-                  <Text fontWeight={600}>{feature.title}</Text>
-                  <Text color={"gray.600"}>{feature.text}</Text>
-                </VStack>
-              </HStack>
-            ))}
-          </SimpleGrid>
-        </Container>
+        <Stack textAlign={"left"} p={4}>
+          <Heading
+            color={useColorModeValue("gray.700", "white")}
+            fontSize={"20px"}
+            width={"100%"}
+          >
+            Speech to Text
+          </Heading>
+          <Text color={"gray.500"} fontSize={"15px"} width={"100%"}>
+            The deets
+          </Text>
+        </Stack>
       </Box>
-    </Box>
+      <Box
+        alignItems={"start"}
+        justifyContent={"left"}
+        display={"flex"}
+        flexDirection={"column"}
+        as={"button"}
+        margin={"20px !important"}
+        maxWidth={"300px"}
+        w={"full"}
+        height={"500px"}
+        bg={useColorModeValue("white", "gray.900")}
+        boxShadow={"0px 4px 12px rgba(0, 0, 0, 0.1)"}
+        rounded={"md"}
+        p={0}
+        overflow={"hidden"}
+        _hover={{ boxShadow: "0px 6px 14px rgba(0, 0, 0, 0.2)" }}
+        onClick={() => window.open("https://anshpa.tel")}
+      >
+        <Stack textAlign={"left"} p={4}>
+          <Heading
+            color={useColorModeValue("gray.700", "white")}
+            fontSize={"20px"}
+            width={"100%"}
+          >
+            Lecture Recordings
+          </Heading>
+          <Text color={"gray.500"} fontSize={"15px"} width={"100%"}>
+            The deets
+          </Text>
+        </Stack>
+      </Box>
+      <Box
+        alignItems={"start"}
+        justifyContent={"left"}
+        display={"flex"}
+        flexDirection={"column"}
+        as={"button"}
+        margin={"20px !important"}
+        maxWidth={"300px"}
+        w={"full"}
+        height={"500px"}
+        bg={useColorModeValue("white", "gray.900")}
+        boxShadow={"0px 4px 12px rgba(0, 0, 0, 0.1)"}
+        rounded={"md"}
+        p={0}
+        overflow={"hidden"}
+        _hover={{ boxShadow: "0px 6px 14px rgba(0, 0, 0, 0.2)" }}
+        onClick={() => window.open("https://anshpa.tel")}
+      >
+        <Stack textAlign={"left"} p={4}>
+          <Heading
+            color={useColorModeValue("gray.700", "white")}
+            fontSize={"20px"}
+            width={"100%"}
+          >
+            Summarization
+          </Heading>
+          <Text color={"gray.500"} fontSize={"15px"} width={"100%"}>
+            The deets
+          </Text>
+        </Stack>
+      </Box>
+      <Box
+        alignItems={"start"}
+        justifyContent={"left"}
+        display={"flex"}
+        flexDirection={"column"}
+        as={"button"}
+        margin={"20px !important"}
+        maxWidth={"300px"}
+        w={"full"}
+        height={"500px"}
+        bg={useColorModeValue("white", "gray.900")}
+        boxShadow={"0px 4px 12px rgba(0, 0, 0, 0.1)"}
+        rounded={"md"}
+        p={0}
+        overflow={"hidden"}
+        _hover={{ boxShadow: "0px 6px 14px rgba(0, 0, 0, 0.2)" }}
+        onClick={() => window.open("https://anshpa.tel")}
+      >
+        <Stack textAlign={"left"} p={4}>
+          <Heading
+            color={useColorModeValue("gray.700", "white")}
+            fontSize={"20px"}
+            width={"100%"}
+          >
+            Force Press Definitions
+          </Heading>
+          <Text color={"gray.500"} fontSize={"15px"} width={"100%"}>
+            The deets
+          </Text>
+        </Stack>
+      </Box>
+    </HStack>
   );
-}
+};
+
 const NavBar = (): JSX.Element => {
   return (
     <Box backgroundColor={"blackAlpha.900"} color={"white"} px={"5%"} py={3}>
@@ -106,7 +205,8 @@ const Home: NextPage = () => {
     <PageLayout title={"geese, by minihacks"}>
       <Box backgroundColor={"yellow.50"} minHeight={"100vh"}>
         <NavBar />
-        <GridListWithHeading />
+        <TitleFeatures />
+        <FeatureBoxes />
       </Box>
     </PageLayout>
   );
