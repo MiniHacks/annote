@@ -11,6 +11,7 @@ import {
   Button,
   useColorModeValue,
   Center,
+  Image,
 } from "@chakra-ui/react";
 
 import React from "react";
@@ -169,11 +170,16 @@ const FeatureBoxes = (): JSX.Element => {
 
 const NavBar = (): JSX.Element => {
   return (
-    <Box style={{
-      position: "sticky",
-      top: "0",
-    }}
-        backgroundColor={"blackAlpha.900"} color={"white"} px={"5%"} py={3}>
+    <Box
+      style={{
+        position: "sticky",
+        top: "0",
+      }}
+      backgroundColor={"blackAlpha.900"}
+      color={"white"}
+      px={"5%"}
+      py={3}
+    >
       <HStack justifyContent={"space-between"}>
         <Heading fontSize={"35px"}>Annote.</Heading>
         <HStack>
@@ -211,6 +217,79 @@ const Home: NextPage = () => {
         <NavBar />
         <TitleFeatures />
         <FeatureBoxes />
+        <HStack
+          spacing={0}
+          style={{
+            justifyContent: "space-between",
+            width: "100%",
+            flex: "display",
+          }}
+        >
+          <HStack width={"33%"}>
+            <Box boxSize={"50px"}>
+              <Image
+                htmlHeight={"200px"}
+                htmlWidth={"200px"}
+                src={"https://i.imgur.com/CH272pQ.png"}
+                alt={"back button"}
+              />
+            </Box>
+          </HStack>
+
+          <HStack width={"34%"}>
+            <Box boxSize={"50px"}>
+              <Image
+                htmlHeight={"200px"}
+                htmlWidth={"200px"}
+                src={"https://i.imgur.com/wL3ekTA.png"}
+                alt={"brush"}
+              />
+            </Box>
+            <Box boxSize={"50px"}>
+              <Image
+                htmlHeight={"200px"}
+                htmlWidth={"200px"}
+                src={"https://i.imgur.com/amTacz7.png"}
+                alt={"highlighter"}
+              />
+            </Box>
+            <Box boxSize={"50px"}>
+              <Image
+                htmlHeight={"200px"}
+                htmlWidth={"200px"}
+                src={"https://i.imgur.com/Hl29Jyh.png"}
+                alt={"eraser"}
+              />
+            </Box>
+          </HStack>
+
+          <HStack width={"33%"}>
+            <Box boxSize={"50px"}>
+              <Image
+                htmlHeight={"200px"}
+                htmlWidth={"200px"}
+                src={"https://i.imgur.com/4WDcbvp.png"}
+                alt={"undo"}
+              />
+            </Box>
+            <Box boxSize={"50px"}>
+              <Image
+                htmlHeight={"200px"}
+                htmlWidth={"200px"}
+                src={"https://i.imgur.com/JB6tHc6.png"}
+                alt={"redo"}
+              />
+            </Box>
+            <Box boxSize={"50px"}>
+              <Image
+                htmlHeight={"200px"}
+                htmlWidth={"200px"}
+                src={"https://i.imgur.com/yw8wSmR.png"}
+                alt={"menu"}
+              />
+            </Box>
+          </HStack>
+        </HStack>
       </Box>
     </PageLayout>
   );
