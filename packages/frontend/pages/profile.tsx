@@ -67,7 +67,12 @@ const NavBar = (): JSX.Element => {
   const { data: session, status } = useSession();
   console.log(status);
   return (
-    <Box backgroundColor={"blackAlpha.900"} color={"white"} px={"5%"} py={3}>
+    <Box
+        style={{
+          position: "sticky",
+          top: "0",
+        }}
+        backgroundColor={"blackAlpha.900"} color={"white"} px={"5%"} py={3}>
       <HStack justifyContent={"space-between"}>
         <Heading fontSize={"35px"}>Annote.</Heading>
         <HStack>
