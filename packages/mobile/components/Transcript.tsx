@@ -1,4 +1,4 @@
-import { Box, Button, VStack, HStack, Text } from "@chakra-ui/react";
+import { Box, Button, HStack, Text, VStack } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import io from "socket.io-client";
 import RecordRTC, { MediaStreamRecorder } from "recordrtc";
@@ -47,7 +47,7 @@ type TranscriptData = {
 
 let interval: NodeJS.Timeout;
 
-function Tag({ children }) {
+function Tag({ children }: { children: string[] }) {
   return (
     <Box
       style={{
@@ -132,10 +132,6 @@ export default function Transcript(): JSX.Element {
     };
   }, []);
 
-  const sendPing = () => {
-    socket.emit("ping");
-  };
-
   // const startRecording = () => {
   //   recordRTC = new MicrophoneStream();
   //
@@ -167,7 +163,7 @@ export default function Transcript(): JSX.Element {
           timeSlice: 1000,
           ondataavailable: (blob) => {
             socket.emit("stream_audio", { blob, id }); // sends blob to server
-            console.log("sent blob");
+            // console.log("sent blob");
           },
           recorderType: MediaStreamRecorder,
           numberOfAudioChannels: 1,
@@ -184,14 +180,11 @@ export default function Transcript(): JSX.Element {
             recordRTC.startRecording();
           });
         }, 10000 / NUM);
-      })
-      .catch((err) => {
-        console.warn(err);
       });
   };
 
   const stopRecording = () => {
-    console.log("stopButton clicked");
+    // console.log("stopButton clicked");
 
     // gumStream?.getAudioTracks()[0].stop();
     recordRTC?.stopRecording();
@@ -230,7 +223,7 @@ export default function Transcript(): JSX.Element {
         </Button>
         <Button onClick={stopRecording}>stop</Button>
       </HStack>
-      {complete.map((d, index) =>
+      {complete.map((d) =>
         d.result.segments.map((s) => (
           <TranscriptItem data={s} key={s.id} complete />
         ))
