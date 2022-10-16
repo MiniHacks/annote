@@ -164,7 +164,7 @@ const PenCanvas = () => {
           background:
             "repeating-linear-gradient(#FDFFED, #FDFFED 25px, #E9EBDA 26px, #E9EBDA 27px)",
           width: "50vw",
-          height: "100%",
+          height: "5000px",
           touchAction: "none",
         }}
       >
