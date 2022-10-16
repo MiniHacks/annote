@@ -169,7 +169,11 @@ const FeatureBoxes = (): JSX.Element => {
 
 const NavBar = (): JSX.Element => {
   return (
-    <Box backgroundColor={"blackAlpha.900"} color={"white"} px={"5%"} py={3}>
+    <Box style={{
+      position: "sticky",
+      top: "0",
+    }}
+        backgroundColor={"blackAlpha.900"} color={"white"} px={"5%"} py={3}>
       <HStack justifyContent={"space-between"}>
         <Heading fontSize={"35px"}>Annote.</Heading>
         <HStack>
