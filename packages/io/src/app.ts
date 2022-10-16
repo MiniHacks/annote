@@ -74,6 +74,8 @@ app.use(express.static("images"));
 app.post("/save", async (req: Request, res: Response) => {
   // take transcript data and a buffer for the image of the canvas drawing
 
+  const name = req.query.name;
+
   const id = v4();
   const transcript = req.body.transcript;
   const image = req.body.image;
@@ -87,7 +89,7 @@ app.post("/save", async (req: Request, res: Response) => {
 
   client.connect().then(async () => {
     const collection = client.db("annote").collection("notes");
-    await collection.insertOne({ id, transcript, image: `${id}.png` });
+    await collection.insertOne({ id, transcript, image: `${id}.png`, owner: name });
     res.json({ success: "saved", id });
   });
 });
