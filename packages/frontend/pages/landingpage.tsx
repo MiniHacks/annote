@@ -18,18 +18,29 @@ const SplitPage1 = (): JSX.Element => {
     <HStack
       spacing={0}
       style={{
-        height: "50vh",
-        justifyContent: "split-between",
+        height: "60vh",
+        justifyContent: "center",
+        alignItems: "center",
         flex: "display",
         flexDirection: "row",
+        color: "white",
       }}
     >
-      <Box width={"50%"} height={"50vh"} backgroundColor={"white"}>
-        <Heading>test</Heading>
+      <Box
+        width={"50%"}
+        height={"60vh"}
+        backgroundColor={"blackAlpha.800"}
+        textAlign={"center"}
+        paddingTop={"10%"}
+      >
+        <Heading>Text-to-speech recognition</Heading>
+        <Box>Test</Box>
       </Box>
-      <Box width={"50%"} height={"50vh"} backgroundColor={"black"}>
-        test
-      </Box>
+      <Box
+        width={"50%"}
+        height={"60vh"}
+        backgroundColor={"blackAlpha.800"}
+      ></Box>
     </HStack>
   );
 };
@@ -45,10 +56,10 @@ const SplitPage2 = (): JSX.Element => {
         flexDirection: "row",
       }}
     >
-      <Box width={"50%"} height={"50vh"} backgroundColor={"black"}>
+      <Box width={"50%"} height={"50vh"} backgroundColor={"#c5d6db"}>
         <Heading></Heading>
       </Box>
-      <Box width={"50%"} height={"50vh"} backgroundColor={"white"}>
+      <Box width={"50%"} height={"50vh"} backgroundColor={"#7c9eb7"}>
         test
       </Box>
     </HStack>
@@ -135,10 +146,59 @@ const Home: NextPage = () => {
           paddingBottom={"50px"}
         />
       </Center>
-      <SplitPage1 />
-      <SplitPage2 />
-      <SplitPage1 />
-      <SplitPage2 />
+      <HStack
+        spacing={0}
+        style={{
+          height: "60vh",
+          justifyContent: "center",
+          alignItems: "center",
+          flex: "display",
+          flexDirection: "row",
+          color: "white",
+        }}
+      >
+        <Box
+          width={"50%"}
+          height={"60vh"}
+          backgroundColor={"blackAlpha.800"}
+          textAlign={"center"}
+          paddingTop={"10%"}
+        >
+          <Heading>Text-to-speech recognition</Heading>
+          <Box>Test</Box>
+        </Box>
+        <Box
+          width={"50%"}
+          height={"60vh"}
+          backgroundColor={"blackAlpha.800"}
+        ></Box>
+      </HStack>
+
+      <HStack
+        spacing={0}
+        style={{
+          height: "60vh",
+          justifyContent: "center",
+          alignItems: "center",
+          flex: "display",
+          flexDirection: "row",
+          color: "white",
+        }}
+      >
+        <Box
+          width={"50%"}
+          height={"60vh"}
+          backgroundColor={"blackAlpha.800"}
+          textAlign={"center"}
+          paddingTop={"10%"}
+        >
+          <Heading>Speech-to-text recognition</Heading>
+          <Box>WRITE TEXT HERE FOR THE SPEECH TO TEXT</Box>
+        </Box>
+        <Box width={"50%"} height={"60vh"} backgroundColor={"blackAlpha.800"}>
+          <Image src={"https://i.imgur.com/yJW12Xw.png"} alt={"ipad image"} />
+        </Box>
+      </HStack>
     </Box>
   );
 };
