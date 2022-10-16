@@ -2,15 +2,28 @@
 const _l = console.log;
 console.log = (...params) => _l("\x1b[35m" + "[io]", ...params);
 
+import { config } from "dotenv";
 import express, { Request, Response } from "express";
 import { createServer } from "http";
 import { Server } from "socket.io";
 import fs from "fs";
 import { v4 } from "uuid";
 import axios from "axios";
+import { MongoClient } from "mongodb";
+import cors from "cors";
+import bodyParser from "body-parser";
+
+config({ path: "../../.env" });
 
 const app = express();
+app.use(cors());
+app.use(bodyParser.json());
 const server = createServer(app);
+const client = new MongoClient(process.env.MONGO ?? "", {
+  // useNewUrlParser: true,
+  // useUnifiedTopology: true,
+  // serverApi: ServerApiVersion.v1,
+});
 
 const io = new Server(server, {
   cors: {
@@ -22,6 +35,34 @@ const PORT = +(process?.env?.IO_PORT ?? 5001);
 
 app.get("/", (req: Request, res: Response) => {
   res.send("hello world :)");
+});
+
+app.get("/dashboard", (req: Request, res: Response) => {
+  if (!req.query.name) return res.send("no name provided");
+  const name = req.query.name as string;
+  client.connect().then(() => {
+    const collection = client.db("annote").collection("notes");
+    const folders = client.db("annote").collection("folders");
+    const notes = collection.find({ owner: name }).toArray();
+    const foldersData = folders.find({ owner: name }).toArray();
+    Promise.all([notes, foldersData]).then(([noteData, folderData]) => {
+      res.json({ notes: noteData, folders: folderData });
+    });
+    console.log("connected to mongodb");
+  });
+});
+
+app.post("/folder", (req: Request, res: Response) => {
+  if (!req.query.name) return res.send("no name provided");
+
+  if (!req.body.folderName) return res.send("no folder name provided");
+  const name = req.query.name as string;
+  const folderName = req.body.folderName as string;
+  client.connect().then(() => {
+    const folders = client.db("annote").collection("folders");
+    folders.insertOne({ owner: name, name: folderName });
+    res.json({ success: "folder created" });
+  });
 });
 
 app.post("/save", async (req: Request, res: Response) => {
@@ -70,7 +111,10 @@ io.on("connection", (socket) => {
     }
   });
 });
+client.connect((err) => {
+  server.listen(PORT, () => {
+    console.log(`io listening on http://127.0.0.1:${PORT}`);
+  });
 
-server.listen(PORT, () => {
-  console.log(`io listening on http://127.0.0.1:${PORT}`);
+  client.close();
 });

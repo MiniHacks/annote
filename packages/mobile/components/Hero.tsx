@@ -37,7 +37,7 @@ export default function Hero(): JSX.Element {
         <Image
           htmlHeight={"50%"}
           htmlWidth={"50%"}
-          src={"/images/8tYEs8l.png"}
+          src={"/images/hero.png"}
           alt={"ipad image"}
         />
       </Center>
