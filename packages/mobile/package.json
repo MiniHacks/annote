@@ -16,6 +16,8 @@
     "@chakra-ui/react": "^2.3.2",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
+    "@fontsource/inter": "^4.5.14",
+    "@fontsource/roboto-slab": "^4.5.9",
     "framer-motion": "^6",
     "get-user-media-promise": "^1.1.4",
     "microphone-stream": "^6.0.1",
