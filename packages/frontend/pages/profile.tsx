@@ -17,7 +17,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 
-import { useSession } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 
 import PageLayout from "../components/Layout/PageLayout";
 
@@ -103,6 +103,7 @@ const NavBar = (): JSX.Element => {
                   _hover={{
                     backgroundColor: "blackAlpha.800",
                   }}
+                  onClick={() => window.open("http://localhost:3000/dashboard")}
                 >
                   Dashboard{" "}
                 </MenuItem>
@@ -110,6 +111,7 @@ const NavBar = (): JSX.Element => {
                   _hover={{
                     backgroundColor: "blackAlpha.800",
                   }}
+                  onClick={() => signOut()}
                 >
                   Log out
                 </MenuItem>
