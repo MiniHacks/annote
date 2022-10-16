@@ -1,4 +1,4 @@
-import { Button, VStack } from "@chakra-ui/react";
+import { Button, Text, VStack } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import io from "socket.io-client";
 import RecordRTC, { MediaStreamRecorder } from "recordrtc";
@@ -22,9 +22,17 @@ const constraints = {
   video: false,
 };
 
+type TranscriptData = {
+  result: {
+    text: string;
+  };
+};
+
 export default function Transcript(): JSX.Element {
   const [isConnected, setIsConnected] = useState(socket.connected);
-  const [lastPong, setLastPong] = useState<string>();
+
+  const [completeData, setCompleteData] = useState<TranscriptData[]>([]);
+  const [inProgressData, setInProgressData] = useState<TranscriptData[]>([]);
 
   useEffect(() => {
     socket.on("connect", () => {
@@ -35,8 +43,13 @@ export default function Transcript(): JSX.Element {
       setIsConnected(false);
     });
 
-    socket.on("pong", () => {
-      setLastPong(new Date().toISOString());
+    socket.on("tiny_data", (data) => {
+      setInProgressData((pv) => [...pv, data]);
+    });
+
+    socket.on("complete_data", (data) => {
+      setCompleteData((pv) => [...pv, data]);
+      setInProgressData([]);
     });
 
     return () => {
@@ -89,10 +102,11 @@ export default function Transcript(): JSX.Element {
         recordRTC.startRecording();
         setInterval(() => {
           recordRTC.stopRecording(() => {
+            socket.emit("done_with_segment", { id });
             id += 1;
             recordRTC.startRecording();
           });
-        }, 5000);
+        }, 8000);
       })
       .catch((err) => {
         console.warn(err);
@@ -106,14 +120,31 @@ export default function Transcript(): JSX.Element {
     recordRTC.stopRecording();
   };
 
+  const complete = completeData.filter(
+    (value, index, self) =>
+      index === self.findIndex((t) => t.result.text === value.result.text)
+  );
+
+  const inProgress = inProgressData.filter(
+    (value, index, self) =>
+      index === self.findIndex((t) => t.result.text === value.result.text)
+  );
+
   return (
-    <VStack>
+    <VStack spacing={2}>
       <Button disabled={!isConnected} onClick={wavRecord}>
         start
       </Button>
       <Button onClick={stopRecording}>stop</Button>
       <Button onClick={sendPing}>ping</Button>
-      <pre>{JSON.stringify({ isConnected, lastPong }, null, 2)}</pre>
+      {complete.map((d) => (
+        <Text key={d.result.text}>{d.result.text}</Text>
+      ))}
+      {inProgress.map((d) => (
+        <Text fontWeight={200} key={d.result.text}>
+          {d.result.text}
+        </Text>
+      ))}
     </VStack>
   );
 }

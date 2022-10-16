@@ -46,6 +46,6 @@ async def revise(socketId: str, partial: int):
         v=0, a=1
     ).output(file).run()
 
-    result = tiny_en.transcribe(file)
+    result = medium.transcribe(file)
     return {"time": time.time() - start_time, "result": result, "file": file}
 
