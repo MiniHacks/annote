@@ -146,7 +146,7 @@ function SimpleCard() {
                     </FormControl>
                   </Box>
                   <Box>
-                    <FormControl id="lastName">
+                    <FormControl id="lastName" isRequired>
                       <FormLabel>Last Name</FormLabel>
                       <Input type="text" />
                     </FormControl>
@@ -185,7 +185,10 @@ function SimpleCard() {
                 </Stack>
                 <Stack pt={3}>
                   <Text fontSize={"20px"} align={'center'}>
-                    Already a user? <Link color={'darkgrey'}>Login</Link>
+                    Already a user?{" "}
+                    <Link
+                        onClick={() => window.open("http://localhost:3000/signin")}
+                        color={'darkgrey'}>Login</Link>
                   </Text>
                 </Stack>
               </Stack>
